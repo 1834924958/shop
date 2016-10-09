@@ -1,0 +1,97 @@
+.ScapTcha .slideBg-slider {margin:0 auto 1em}
+.ScapTcha .slideBg {
+	position: relative;
+	border: 1px solid #cbcbcb;
+	padding: 0 0;
+	text-align: center;
+  -webkit-border-radius: 90px;
+	-moz-border-radius: 90px;
+	border-radius: 90px;
+	background: #F9F9F9;
+	margin:0 auto;
+}
+
+.ScapTcha .slideBg .slideFg {
+  cursor: pointer;
+  position: absolute;
+  z-index: 2;
+}
+
+.ScapTcha .no-select {
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -khtml-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+.ScapTcha {
+  position:relative;
+  display: inline-block;
+  margin-top: 0px;
+}
+
+.ScapTcha .puzzleBg{
+    /* width: 300px; */
+    position: absolute;
+    /*float: left;*/
+    display: none;
+    z-index:999
+}
+
+.ScapTcha .puzzleFg {
+    position: absolute;
+    top: 0px;
+}
+
+.ScapTcha .statusTxt {
+    text-align: left;
+    color: #fa5b5b;
+    position: absolute;
+    width: 100px;
+    bottom: 0px;
+    left: 0;
+    top: 0;
+    font-size: 12px;
+    padding-left: 20px;
+}
+
+.ScapTcha .hintTxt {
+    overflow: hidden;  
+    color: #a8a8a8;
+    font-size: 12px;
+    text-align: center;
+    position: relative;
+}
+
+@keyframes move-left
+{
+100% {left:1px;}
+}
+
+@-moz-keyframes move-left /* Firefox */
+{
+100% {left:1px;}
+}
+
+@-webkit-keyframes move-left /* Safari 和 Chrome */
+{
+100% {left:1px;}
+}
+
+@-o-keyframes move-left /* Opera */
+{
+100% {left:1px;}
+}
+
+.anim-left
+{
+  animation:move-left 0.5s forwards;
+  animation-timing-function: linear;
+  -moz-animation:move-left 0.5s forwards; /* Firefox */
+  -moz-animation-timing-function: linear;
+  -webkit-animation:move-left 0.5s forwards; /* Safari and Chrome */
+  -webkit-animation-timing-function: linear;
+  -o-animation:move-left 0.5s forwards; /* Opera */
+  -o-animation-timing-function: linear;
+}

@@ -1,0 +1,1 @@
+String.prototype.format=function(){if(0==arguments.length)return this;var t=arguments;return this.replace(/\{(\d+)\}/g,function(r,n){return void 0===t[n]?"{"+n+"}":t[n]})};
