@@ -32,14 +32,7 @@ class UserController extends Controller
             $where['name'] = $name;//然后为视图准备参数
 
         }
-        //进行判断是不是存在
-        // if($request->has('sex')){
-        //     $sex = $request->input('sex');
-        //     $db->where('sex','=',"{$sex}");
-        //     $where['sex'] = $sex;
-        // }
-        //3. 进行分页,
-        //获取数据;
+
         $list = $db->paginate(4);
         //模板;
         return view("admin.user.index")->with(["list"=>$list,"where"=>$where]);

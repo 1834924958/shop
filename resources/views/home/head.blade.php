@@ -1,5 +1,10 @@
-<!DOCTYPE html>
 
+<?php   
+		
+		$qwer = \DB::table('plate')->select('name')->get();
+		
+		
+?>
 <html class="js rgba opacity cssanimations borderradius boxshadow csstransitions csstransforms textshadow"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>网易严选 - 以严谨的态度，为中国消费者甄选天下优品</title>
@@ -45,7 +50,7 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 	$(function(){
 		setInterval(function(){
 			//获取最后一张图片，让他的宽变为0px，把他插入到div的内部的前面，用动画效果把宽度1s后恢复到270px
-			$('#did img:last').css('width','0px').prependTo('#did').animate({width:"1080px"},0);
+			$('#did img:last').css('width','0px').prependTo('#did').animate({width:"1080px"},2000);
 		},5000);
 	})
 </script>
@@ -118,13 +123,17 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 </div>
 </div>
 </div>
+
 <ul class="tab-nav">
 <li class="nav-item active first">
 <a class="topLevel" title="首页" href="/qian">首页</a>
 </li>
+
+
+@foreach ($qwer as $plate)
 <li class="j-nav-item nav-item ">
 <a class="topLevel" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=nav_2&amp;_stat_referer=index" title="居家">
-居家
+{{ $plate->name }}
 </a>
 <div class="j-nav-dropdown nav-dropdown">
 <div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
@@ -181,311 +190,12 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 </div>
 </div>
 </li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1005002&amp;_stat_area=nav_3&amp;_stat_referer=index" title="饮食">
-饮食
-</a>
-<div class="j-nav-dropdown nav-dropdown">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005002&amp;subCategoryId=1005011" title="小食">
-<img class="w-icon-50" src=".././img/1d98f2d8ddfe691e04393ec4449b5d0b.png" alt="小食">
-<p class="text">小食</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005002&amp;subCategoryId=1005013" title="冲饮">
-<img class="w-icon-50" src=".././img/706ef4c3fae352a2214de918944b330b.png" alt="冲饮">
-<p class="text">冲饮</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005002&amp;subCategoryId=1005012" title="食材">
-<img class="w-icon-50" src=".././img/61b2bbfae70d5e08ea5dc276b842e294.png" alt="食材">
-<p class="text">食材</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005002&amp;subCategoryId=1008014" title="主食">
-<img class="w-icon-50" src=".././img/585421fd7ab287bfc5c927e290b3dea7.png" alt="主食">
-<p class="text">主食</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005002&amp;subCategoryId=1005010" title="坚果">
-<img class="w-icon-50" src=".././img/fa3a9622901a7412a25d19f29bf09d87.png" alt="坚果">
-<p class="text">坚果</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1008000&amp;_stat_area=nav_4&amp;_stat_referer=index" title="床品">
-床品
-</a>
-<div class="j-nav-dropdown nav-dropdown" style="display: none;">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1008000&amp;subCategoryId=1008008" title="枕头">
-<img class="w-icon-50" src=".././img/dbec106e27de12ba7fe6c17c18230c40.png" alt="枕头">
-<p class="text">枕头</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1008000&amp;subCategoryId=1008009" title="套件">
-<img class="w-icon-50" src=".././img/024efeb28d8b5847b632a172644ccc79.png" alt="套件">
-<p class="text">套件</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1008000&amp;subCategoryId=1008010" title="四季被">
-<img class="w-icon-50" src=".././img/67a9c6614b277c8e38ce8ee36b5567e8.png" alt="四季被">
-<p class="text">四季被</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1008000&amp;subCategoryId=1010004" title="凉席">
-<img class="w-icon-50" src=".././img/0e054094bdac7e33dbe21df45e9f497e.png" alt="凉席">
-<p class="text">凉席</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1008000&amp;subCategoryId=1013000" title="床垫">
-<img class="w-icon-50" src=".././img/f191633507ada04e2f060b86d74138e5.png" alt="床垫">
-<p class="text">床垫</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1008000&amp;subCategoryId=1008018" title="盖毯">
-<img class="w-icon-50" src=".././img/18f1239a46d34485dcac5aef72fbd80e.png" alt="盖毯">
-<p class="text">盖毯</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1010000&amp;_stat_area=nav_5&amp;_stat_referer=index" title="穿搭">
-穿搭
-</a>
-<div class="j-nav-dropdown nav-dropdown">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1008003" title="鞋">
-<img class="w-icon-50" src=".././img/4063eb2b5b0775db4e62271d9b9c1dc9.png" alt="鞋">
-<p class="text">鞋</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1010002" title="内裤">
-<img class="w-icon-50" src=".././img/f7523ed66c493ea94254605a1b7b0b44.png" alt="内裤">
-<p class="text">内裤</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1010001" title="打底">
-<img class="w-icon-50" src=".././img/0d56bb898e67c6ee3c469b534db370f8.png" alt="打底">
-<p class="text">打底</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1013006" title="家居服">
-<img class="w-icon-50" src=".././img/b8d847cb5a81678e33c9ecf0e3593f91.png" alt="家居服">
-<p class="text">家居服</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1008004" title="袜子">
-<img class="w-icon-50" src=".././img/4812f15fe92a5ccc6a6332bae4dabf2b.png" alt="袜子">
-<p class="text">袜子</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1008007" title="围巾">
-<img class="w-icon-50" src=".././img/1994d238d196feeb1ddc1182d32646b7.png" alt="围巾">
-<p class="text">围巾</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1013001&amp;_stat_area=nav_6&amp;_stat_referer=index" title="个护">
-个护
-</a>
-<div class="j-nav-dropdown nav-dropdown" style="display: none;">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1013001&amp;subCategoryId=1013002" title="美妆">
-<img class="w-icon-50" src=".././img/f3e23fc426f5a9bb23db86a57d1dfec5.png" alt="美妆">
-<p class="text">美妆</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1013001&amp;subCategoryId=1009000" title="洗浴">
-<img class="w-icon-50" src=".././img/fca33ccd6469f79893a2c1a267b7c847.png" alt="洗浴">
-<p class="text">洗浴</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1013001&amp;subCategoryId=1013003" title="镜梳">
-<img class="w-icon-50" src=".././img/2dbcb4e919c4789846f5c7db05635b61.png" alt="镜梳">
-<p class="text">镜梳</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1013001&amp;subCategoryId=1013004" title="香薰">
-<img class="w-icon-50" src=".././img/7d62255940a96a89a421f6e521bfbd9a.png" alt="香薰">
-<p class="text">香薰</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1011000&amp;_stat_area=nav_7&amp;_stat_referer=index" title="母婴">
-母婴
-</a>
-<div class="j-nav-dropdown nav-dropdown" style="display: none;">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1011000&amp;subCategoryId=1011002" title="新生儿（0-6M）">
-<img class="w-icon-50" src=".././img/01ca149730ed17711272c23c4bf05346.png" alt="新生儿（0-6M）">
-<p class="text">新生儿（0-6M）</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1011000&amp;subCategoryId=1011003" title="婴幼儿（6M-3Y）">
-<img class="w-icon-50" src=".././img/0344943fa185813321880b4a27797f58.png" alt="婴幼儿（6M-3Y）">
-<p class="text">婴幼儿（6M-3Y）</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1011000&amp;subCategoryId=1011004" title="中小童（3Y-7Y）">
-<img class="w-icon-50" src=".././img/c7db014fdfb4d4ef8e9952a575e3bc67.png" alt="中小童（3Y-7Y）">
-<p class="text">中小童（3Y-7Y）</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1011000&amp;subCategoryId=1011001" title="孕产妇">
-<img class="w-icon-50" src=".././img/28ec2775dbb798fcd69f0cd85c8b34df.png" alt="孕产妇">
-<p class="text">孕产妇</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1012000&amp;_stat_area=nav_8&amp;_stat_referer=index" title="出行">
-出行
-</a>
-<div class="j-nav-dropdown nav-dropdown">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1012000&amp;subCategoryId=1012001" title="箱包">
-<img class="w-icon-50" src=".././img/c19b0fc7d3bb836e4586b75677510683.png" alt="箱包">
-<p class="text">箱包</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1012000&amp;subCategoryId=1012003" title="文具">
-<img class="w-icon-50" src=".././img/37e271b94676c25097cd54e0993d29cb.png" alt="文具">
-<p class="text">文具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1012000&amp;subCategoryId=1008005" title="户外">
-<img class="w-icon-50" src=".././img/5cea86b570df9b22f0c16a24b41c02cd.png" alt="户外">
-<p class="text">户外</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1012000&amp;subCategoryId=1012002" title="雨具">
-<img class="w-icon-50" src=".././img/c08e1c05a42a22df9b4c479d210e5f3b.png" alt="雨具">
-<p class="text">雨具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1012000&amp;subCategoryId=1008006" title="口罩">
-<img class="w-icon-50" src=".././img/428dcc1415b921638fad376367522c67.png" alt="口罩">
-<p class="text">口罩</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
-<li class="j-nav-item nav-item ">
-<a class="topLevel" href="http://you.163.com/item/list?categoryId=1005001&amp;_stat_area=nav_9&amp;_stat_referer=index" title="厨房">
-厨房
-</a>
-<div class="j-nav-dropdown nav-dropdown">
-<div class="j-nav-cateCard nav-cateCard" style="width: 1519px; left: -759.5px;">
-<ul class="card-list">
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1005007" title="锅具">
-<img class="w-icon-50" src=".././img/0e71d0c201d8ae79746888651ce1542b.png" alt="锅具">
-<p class="text">锅具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1005008" title="餐具">
-<img class="w-icon-50" src=".././img/bf6816c3e9ae24a15bee2e4f77ac2f16.png" alt="餐具">
-<p class="text">餐具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1008012" title="厨具">
-<img class="w-icon-50" src=".././img/ecdd968839862a1e2458745fcffabaa4.png" alt="厨具">
-<p class="text">厨具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1013005" title="刀具">
-<img class="w-icon-50" src=".././img/e5acc93cee60e02d791e6ac2b3011c84.png" alt="刀具">
-<p class="text">刀具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1007000" title="杯子">
-<img class="w-icon-50" src=".././img/848f8fc3292d126bedc6c4b29d78a45c.png" alt="杯子">
-<p class="text">杯子</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1008013" title="茶具">
-<img class="w-icon-50" src=".././img/38087e563bd4d9defa7dbc23219000a9.png" alt="茶具">
-<p class="text">茶具</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1008011" title="保鲜">
-<img class="w-icon-50" src=".././img/616b7a83d93316e802141c6f1cf8705e.png" alt="保鲜">
-<p class="text">保鲜</p>
-</a>
-</li>
-<li class="item">
-<a class="nav-subCate" href="http://you.163.com/item/list?categoryId=1005001&amp;subCategoryId=1005009" title="清洁">
-<img class="w-icon-50" src=".././img/6c95c270ed09e8eeb156b6d59d376c1f.png" alt="清洁">
-<p class="text">清洁</p>
-</a>
-</li>
-</ul>
-</div>
-</div>
-</li>
+
+@endforeach
+
+
+
+
 <li class="split fixed-hide"></li>
 <li class="nav-item fixed-hide ">
 <a class="topLevel" href="http://you.163.com/topic/list?_stat_area=nav_10&amp;_stat_referer=index">专题</a>
@@ -507,8 +217,8 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 </div>
 </div>
 <div class="notLogin">
-<a class="" href="/home/register" title="网易严选登录">登录</a>&nbsp;&nbsp;
-<a class="" data-href="http://reg.163.com/reg/reg.jsp?product=yanxuan_web" href="home/zhuce">注册</a>
+<a class="" href="/denglu" title="网易严选登录">登录</a>&nbsp;&nbsp;
+<a class="" data-href="http://reg.163.com/reg/reg.jsp?product=yanxuan_web" href="/home/create">注册</a>
 </div>
 </div>
 </div>

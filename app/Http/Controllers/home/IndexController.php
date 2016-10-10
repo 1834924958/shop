@@ -7,10 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\home;
-class IndexController extends Controller
+class IndexController extends Controller 
 {
 	public function index()
 	{
+		// $qwer = \DB::table('plate')->select('name')->get();
+
+			// return view("home.index",["qwer"=>$qwer]);
 		return view("home.index");
 	}
 	public function xinxi()
@@ -20,6 +23,7 @@ class IndexController extends Controller
 
 	public function denglu()
 	{
+
 		return view('home.register');
 	}
     //2 执行登录 

@@ -1,5 +1,11 @@
 @extends("home.head")
 @section("content")
+<?php   
+        
+        $qwer = \DB::table('plate')->select('name')->get();
+        
+        
+?>
 <!-- <div class="g-bd">
 <div class="m-focus">
 
@@ -309,12 +315,13 @@
         </div>
     </div>
 </div>
+@foreach ($qwer as $plate)
 <div class="m-cates">
     <div class="g-row">
         <div class="m-cate">
             <header class="hd">
                 <div class="left">
-                    <h3 class="name">居家</h3>
+                    <h3 class="name">{{ $plate->name }}</h3>
                     <small class="frontName">回家，放松身心</small>
                 </div>
                 <div class="right">
@@ -541,8 +548,8 @@
             </footer>
         </div>
     </div>
-
 </div>
+@endforeach
 <div class="m-newComment">
     <div class="g-row">
         <div class="m-cate">

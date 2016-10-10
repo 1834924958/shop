@@ -42,6 +42,7 @@ Route::post("/stor","home\IndexController@stor");
 Route::get('/img/delegate',function(){
 	return view('delegate');
 });
+Route::resource('shuj', 'home\PlateController');
 
 
 
@@ -81,4 +82,10 @@ Route::post("/status","Admin\UserController@status");
 
 //板块
 Route::get('/navigation',"Admin\plateController@navigation");
-Route::resource('plate','Admin\plateController');
+Route::resource("plate","Admin\plateController");
+
+Route::get('/platee',"Admin\PlateController@index");
+
+//子版块
+Route::resource("zizi","Admin\PlatesController");
+Route::get('/childPlate',"Admin\PlatesController@index");

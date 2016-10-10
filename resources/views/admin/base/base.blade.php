@@ -29,6 +29,13 @@
                         form.submit();
                     }
                 }            
+                function doDe(dd){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.myfor;
+                        form.action = '/plate/'+dd;
+                        form.submit();
+                    }
+                }    
         </script>
         <!-- <link rel="icon" type="text/css"> -->
     </head>
@@ -175,13 +182,13 @@
                     </li>
 
                     <li>
-                        <a class="sa-side-widget" href="/navigation">
+                        <a class="sa-side-widget" href="/platee">
                             <span class="menu-item">导航板块</span>
                         </a>
                     </li>
                     <li>
-                        <a class="sa-side-table" href="tables.html">
-                            <span class="menu-item">Tables</span>
+                        <a class="sa-side-table" href="/childPlate">
+                            <span class="menu-item">添加子版块</span>
                         </a>
                     </li>
                     <li class="dropdown">
