@@ -69,7 +69,6 @@
                  @endforeach       
                     </tbody>
     <script>
-    
      $('#user').onclick(function(){
                     $.ajax({
                         type:'POST',
@@ -77,11 +76,22 @@
                         data:"_token={{ csrf_token() }}&user="+user,
                     })
             })
+        // $(function(){
+        //     $('button').onclick(function(){
+        //         switch($(this)){
+        //             case '开启':
+        //                 document.getElementById('did').innerhtml('关闭');
+        //             break;
+        //         }
+        //     });
+        // })
     </script>
                 </table>
-                <center >
+                <!-- 进行分页 -->
+                <div class="media text-center">
                     {!!  $list->appends($where)->render() !!}
-                </center>
+                </div>
+
             </div>
     </section>
 @endsection
