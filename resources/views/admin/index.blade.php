@@ -7,7 +7,7 @@
 	            	<!-- 显示管理员的信息 -->
 	                <h1>Hello, {{  session('adminuser')->name }}管理员!</h1>
 	                <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-	                <!-- 执行退出的操作 -->
+	                <!-- 执行退出的操作de -->
 	                <p><a class="btn btn-alt btn-lg" href="{{ asset('admin/logout') }}">QUIT</a></p>               
 	            </div>
 	        </div>
