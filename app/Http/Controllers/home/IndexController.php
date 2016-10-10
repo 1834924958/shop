@@ -99,4 +99,32 @@ class IndexController extends Controller
 			}
 		}
 	}
+
+
+
+	// 进行修改的操作;
+    public function edit($id){
+        $user = \DB::table('user')->where('id','=',$id)->first();
+        return view('home.xinxi',['user'=>$user]);
+    }
+
+      public function update($id,Request $request){
+        $a = $request->all();
+
+        $email=$a['email'];
+        $tel=$a['tel'];
+        if(preg_match('/^[0-9a-zA-Z]+@(([0-9a-zA-Z]+)[.])+[a-z]{2,4}$/',$email)==null || preg_match('/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/',$tel)==null){
+        	return view('home.xinxi');
+        }else{
+	        $xg = \DB::table('user')->where('id','=',$id)->update(['uname'=>$a['uname'],'email'=>$a['email'],'tel'=>$a['tel']]);
+	        //如果修改成功跳转到主界面;
+	        if($xg>0){
+	            // return $this->index();
+	            return view('home.xinxi');
+	        }else{
+	            echo '修改失败';
+	        }   
+	    }
+    }
+
 }

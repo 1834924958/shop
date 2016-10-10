@@ -63,8 +63,10 @@
             <br/><br/><span id='unameinfo' style="font-size:15px"></span>
             <!-- <input type='text' name='name' color='green'> -->
   <script>
-    
-     $('#user').blur(function(){
+            var info = document.getElementById('unameinfo');
+             $('#user').focus(function(){
+                info.innerHTML='';
+             }).blur(function(){
                 var info = document.getElementById('unameinfo');
                 var user = $('#user').val();
                 if(user.match(/^\w{4,16}$/) == null){

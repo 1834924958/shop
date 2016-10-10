@@ -78,3 +78,7 @@ Route::resource("user","Admin\UserController");
 
 
 Route::post("/status","Admin\UserController@status");
+
+//板块
+Route::get('/navigation',"Admin\plateController@navigation");
+Route::resource('plate','Admin\plateController');

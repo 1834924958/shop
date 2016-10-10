@@ -65,7 +65,14 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 
 <a class="zhuce" href="/home/create"><span style='font-size:12px;color:#ffffff;'>注册</span></a>
 @else
-<a class="yonghu" href="/xinxi"><span style='font-size:12px;color:#ffffff;'>{{ session("homeuser")->name}}</span></a>
+<a class="yonghu" href="/xinxi"><span style='font-size:12px;color:#ffffff;'>
+@if( empty(session("homeuser")->uname))
+
+	{{ session("homeuser")->name}}
+@else
+	{{ session("homeuser")->uname}}
+@endif
+</span></a>
 <a class="tuichu" href="{{ URL('lala/logout') }}"><span style='font-size:12px;color:#ffffff;'>退出</span></a>
 @endif
 <div class="split"></div>

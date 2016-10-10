@@ -175,8 +175,8 @@
                     </li>
 
                     <li>
-                        <a class="sa-side-widget" href="content-widgets.html">
-                            <span class="menu-item">Widgets</span>
+                        <a class="sa-side-widget" href="/navigation">
+                            <span class="menu-item">导航板块</span>
                         </a>
                     </li>
                     <li>
