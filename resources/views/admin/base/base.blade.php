@@ -8,7 +8,7 @@
         <meta name="description" content="Violate Responsive Admin Template">
         <meta name="keywords" content="Super Admin, Admin, Template, Bootstrap">
 
-        <title>Super Admin Responsive Template</title>
+        <title>欢迎进入后台管理系统</title>
             
         <!-- CSS -->
         <link href="{{ asset ('admin/css/bootstrap.min.css') }}" rel="stylesheet">

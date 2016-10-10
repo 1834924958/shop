@@ -46,14 +46,14 @@ Route::get('/img/delegate',function(){
 
 
 
+//xxxx
 
 
 
 
 
 
-
-//牛大丁大大
+//牛
 
 //进入后台的登录
 

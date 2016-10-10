@@ -114,9 +114,9 @@
         </div>
         <div class="u-input">
             <label for="inpt-pw2" class="u-label">验证码：</label>
-            <input name="code" id="inpt-pw2" placeholder="请输入验证码" class="i-inpt " type="text" style="width:166px">
+            <input name="code" id="inpt-pw2" placeholder="你好,请输入验证码" class="i-inpt " type="text" style="width:166px">
             
-            <span style="display:block;margin-top:10px;"><img src="{{ asset('code.php') }}" /></span>
+            <span style="display:block;margin-top:10px;"><img src="{{ asset('code.php') }}" onclick="this.src='{{ asset('code.php') }}/'+Math.random()"/></span>
             <div class="u-tip f-dn"><div class="spritebg u-clear" id="auto-id-1474905513170"></div></div>
             <!--Regular if7--><!--Regular if8-->
         </div>

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8">
-<title>行业智慧能力平台</title>
+<title>欢迎进入后台登录界面</title>
 <link rel="stylesheet" type="text/css" href="{{ asset('admin/css/style2.0.css')}}">
 <style type="text/css">
 	ul li{font-size: 30px;color:#2ec0f6;}
@@ -103,8 +103,8 @@
 			 <input type="password" name='pass' placeholder="你好,请在这里输入密码..." style="width:270px; height:30px;"/>
 			</div>
 			<div style="margin:5px 0px;">
-			验证码:<br/><input type="text" name="code" style="width:130px;" placeholder="请输入验证码..."/>
-				<img src="{{ asset('code.php') }}" style="width:90px;height:40px;display:block;margin-top:-35px;margin-left:180px" alt="验证码"/>
+			验证码:<br/><input type="text" name="code" style="width:130px;" placeholder="你好,请输入验证码..."/>
+				<img src="{{ asset('code.php') }}" style="width:90px;height:40px;display:block;margin-top:-35px;margin-left:180px" alt="验证码" onclick="this.src='{{ asset('code.php') }}/'+Math.random()"/>
 			</div>
 			<button type="submit" >登<span style="width:20px;"></span>录</button>
 			<div>
