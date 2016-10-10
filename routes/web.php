@@ -53,7 +53,7 @@ Route::get('/img/delegate',function(){
 
 
 
-//牛大丁大大
+//牛
 
 //进入后台的登录
 
