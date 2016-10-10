@@ -50,12 +50,6 @@ Route::resource('shuj', 'home\PlateController');
 //xxxx
 
 
-
-
-
-
-//牛
-
 //进入后台的登录
 
 Route::get('/admin/login',"Admin\LoginController@index");
@@ -63,7 +57,15 @@ Route::get('/admin/login',"Admin\LoginController@index");
 Route::post("/admin/login","Admin\LoginController@doLogin");//登录的表单;
 Route::get('/tianjia',"Admin\UserController@create");
 Route::get('/xianshi',"Admin\UserController@index");
+//显示轮播的管理
+Route::get('/lunbo',"Admin\ImagesController@index");
+//显示轮播图片的添加
+Route::get("/lb","Admin\ImagesController@show");
+Route::post("/lb","Admin\ImagesController@upload");
 
+
+// Route::get("/lunbo","Admin\UploadController@index");//加载添加表单
+// Route::post("/lb","Admin\UploadController@upload");//执行上传
 
 //设置路由组;
 Route::group(["prefix"=>"/admin","middleware"=>"myauth"],function(){
@@ -74,8 +76,11 @@ Route::get("index",function(){
 	return view('admin.index');
 	});
 Route::resource("user","Admin\UserController");
+//进行加载图片轮播的效果;
+Route::resource("images","Admin\ImagesController");//执行上传
 
- });
+
+});
 
 
 Route::post("/status","Admin\UserController@status");

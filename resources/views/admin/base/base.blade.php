@@ -187,13 +187,15 @@
                         </a>
                     </li>
                     <li>
+                        <a class="sa-side-table" href="tables.html">
+                            <span class="menu-item">Table</span>
                         <a class="sa-side-table" href="/childPlate">
                             <span class="menu-item">添加子版块</span>
                         </a>
                     </li>
                     <li class="dropdown">
                         <a class="sa-side-form" href="">
-                            <span class="menu-item">Form</span>
+                            <span class="menu-item">form</span>
                         </a>
                         <ul class="list-unstyled menu-item">
                             <li><a href="form-elements.html">Basic Form Elements</a></li>
@@ -202,19 +204,11 @@
                             <li><a href="form-validation.html">Form Validation</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
-                        <a class="sa-side-ui" href="">
-                            <span class="menu-item">User Interface</span>
+                    <!-- 图片轮播显示的页面 -->
+                    <li>
+                        <a class="sa-side-typography" href="/lunbo">
+                            <span class="menu-item">图片轮播管理</span>
                         </a>
-                        <ul class="list-unstyled menu-item">
-                            <li><a href="buttons.html">Buttons</a></li>
-                            <li><a href="labels.html">Labels</a></li>
-                            <li><a href="images-icons.html">Images &amp; Icons</a></li>
-                            <li><a href="alerts.html">Alerts</a></li>
-                            <li><a href="media.html">Media</a></li>
-                            <li><a href="components.html">Components</a></li>
-                            <li><a href="other-components.html">Others</a></li>
-                        </ul>
                     </li>
                     <li>
                         <a class="sa-side-chart" href="charts.html">
