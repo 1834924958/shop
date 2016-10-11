@@ -14,13 +14,14 @@
 
 
 
+                <h3 class="block-title"><a href="/platee">主板块管理</a></h3>
 
                 <h3 class="block-title"><a href="/navigation">添加主板块</a></h3>
               <!-- 进行搜索 -->
               <center>
                   <form class="form-inline" action="{{ URL('/plate') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                        姓名:<input type="text" name="name" size="6" class="form-control">
+                        主版块名:<input type="text" name="name" size="6" class="form-control">
                         <input type="submit" value="确认搜索" class="btn btn-primary">
                     </form>
             </center>
@@ -31,7 +32,7 @@
 
                         <tr>
                             <th>板块ID</th>
-                            <th>祝板块名</th>
+                            <th>主板块名</th>
                             <th>操作</th>
                         </tr>
                     </thead>

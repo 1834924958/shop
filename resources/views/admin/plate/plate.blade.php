@@ -8,7 +8,7 @@
                     <form class="row form-columned" role="form" method='post' action='/plate'>
                      <input type='hidden' name='_token' value="{{ csrf_token() }}">
                         <div class="col-md-4">
-                            <input name='name' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入用户名">
+                            <input name='name' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入要添加主版块名">
                         </div>
 
                         <div class="clearfix"></div>

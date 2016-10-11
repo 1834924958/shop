@@ -34,9 +34,24 @@
 </a>
 </div></div></div> -->
 
+
+
+
+
+<!-- 前台图片的轮播效果 -->
+<?php
+
+    $image = \DB::table('images')->get();
+?>
 <div class="gundong" style='width:1080px;height:400px;border:1px  ;overflow:hidden;'>
-    <div id='did' style='width:99999px;'><img src=".././img/136.jpg" height='400px' width='1080px'><img src=".././img/137.jpg" height='400px' width='1080px'></div>
+        <div id='did' style='width:99999px;'>
+            @foreach($image as $img)
+                 <img src=".././images/tutu/{{ $img->photo }}" height='400px' width='1080px'>
+            @endforeach
+        </div>
 </div>
+
+
 
 
 

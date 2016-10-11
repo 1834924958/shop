@@ -13,15 +13,23 @@
 <div class="g-row">
 <div class="g-sub">
 <div class="m-userinfo">
+
 <div class="w-avatar" id="j-sideAvatarWarp">
-<img src="%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%20-%20%E7%BD%91%E6%98%93%E4%B8%A5%E9%80%89_files/f11a468715f90778f32307b3aa9b149b.jpg" alt="头像" id="j-sideAvatar" width="100px" height="100px">
+
+   <img src=""  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:80px;" >
+     
+
 <div class="modifyAvatar w-icon-normal icon-normal-camera"></div>
 <div class="mask"></div>
 </div>
-<div class="w-nickname" title="丁" id="j-sideNickname">丁</div>
-<a class="w-button switch" href="http://you.163.com/u/logout?callback=/u/loginurs">
-切换帐号
-</a>
+<div class="w-nickname"  id="j-sideNickname">{{ session('homeuser')->name  }}</div>
+<!-- 进行头像的修改 -->
+    <!-- <div style="position: relative;"> -->
+        <a class="w-button switch" href="">修改头像</a>
+       <!--  <input type="submit" style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">
+        <label style="position: absolute; background:#B4A078;display:inline-block;color:#333333;width: 100px;height: 45px;line-height: 45px;text-align: center;top: 10px;left: 40px;">修改头像</label>
+       
+    </div> -->
 </div>
 <script>
 var membershipOn = false;

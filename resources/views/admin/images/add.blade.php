@@ -6,8 +6,9 @@
             <!-- Multi Column -->
                 <div class="block-area" id="multi-column">
                     <h3 class="block-title">轮播上传的图片</h3>
-                    <form class="row form-columned" role="form" method='post' action='/admin/images' enctype="multipart/from-data">
-                     <input type='hidden' name='_token' value="{{ csrf_token() }}">
+
+                    <form class="row form-columned" role="form" action='/admin/images'  method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="col-md-4">
                             <input name='name' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入图片名">
                         </div>

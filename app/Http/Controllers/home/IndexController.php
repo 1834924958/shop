@@ -113,8 +113,30 @@ class IndexController extends Controller
     }
 
       public function update($id,Request $request){
-        $a = $request->all();
 
+        $a = $request->all();
+  //        $file = $request->file('photo');
+  //        	dd($file);
+  //        	$email=$file['email'];
+  //       	$tel=$file['tel'];
+		// if(preg_match('/^[0-9a-zA-Z]+@(([0-9a-zA-Z]+)[.])+[a-z]{2,4}$/',$email)==null || preg_match('/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/',$tel)==null){
+  //       	return view('home.xinxi');
+  //       }else{
+
+  //       	if($file->isValid){
+  //       		 $ext = $file->getClientOriginalExtension();//获得后缀 
+  //          		 $filename = time().rand(1000,9999).".".$ext;//新文件名
+  //           	$file->move("./images/user/",$filename);
+		//         $xg = \DB::table('user')->where('id','=',$id)->update(['uname'=>$file['uname'],'email'=>$file['email'],'tel'=>$file['tel'],'photo'=>$filename]);
+		//         //如果修改成功跳转到主界面;
+		//         if($xg>0){
+		//             // return $this->index();
+		//             return view('home.xinxi');
+		//         }else{
+		//             echo '修改失败';
+		//         }  
+	 //        } 
+	 //    }
         $email=$a['email'];
         $tel=$a['tel'];
         if(preg_match('/^[0-9a-zA-Z]+@(([0-9a-zA-Z]+)[.])+[a-z]{2,4}$/',$email)==null || preg_match('/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/',$tel)==null){

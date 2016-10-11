@@ -46,7 +46,10 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 </style>
 <!-- <script type="text/javascript" src='.././js/jquery-1.8.3.js'></script> -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery-2.1.4.min.js') }}"></script>
+
+
 <script type="text/javascript">
+// 对前台的轮播效果进行一些判断;
 	$(function(){
 		setInterval(function(){
 			//获取最后一张图片，让他的宽变为0px，把他插入到div的内部的前面，用动画效果把宽度1s后恢复到270px
@@ -54,6 +57,9 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 		},5000);
 	})
 </script>
+
+
+
 </head>
 <body>
 <!-- 头部 -->

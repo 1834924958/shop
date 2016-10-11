@@ -35,7 +35,14 @@
                         form.action = '/plate/'+dd;
                         form.submit();
                     }
-                }    
+                } 
+                 function SC(tu){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.mf;
+                        form.action = '/admin/images/'+tu;
+                        form.submit();
+                    }
+                }       
         </script>
         <!-- <link rel="icon" type="text/css"> -->
     </head>
