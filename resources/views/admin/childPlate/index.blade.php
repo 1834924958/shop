@@ -8,7 +8,7 @@
                 <!-- 路由中的删除 -->
 
 
-                <h3 class="block-title"><a href="/navigation">添加主板块</a></h3>
+                <h3 class="block-title"><a href="/tjz">添加子板块</a></h3>
               <!-- 进行搜索 -->
               <center>
                   <form class="form-inline" action="{{ URL('/zizi') }}">

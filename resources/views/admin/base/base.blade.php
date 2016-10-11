@@ -187,8 +187,6 @@
                         </a>
                     </li>
                     <li>
-                        <a class="sa-side-table" href="tables.html">
-                            <span class="menu-item">Table</span>
                         <a class="sa-side-table" href="/childPlate">
                             <span class="menu-item">添加子版块</span>
                         </a>

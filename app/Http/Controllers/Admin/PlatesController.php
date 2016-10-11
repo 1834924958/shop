@@ -21,5 +21,17 @@ class PlatesController extends Controller
 			$list=$db->paginate(2);
 			return view("admin.childPlate.index")->with(["list"=>$list,"where"=>$where]);
 	}
+	//添加
+    public function navigation(){
+        return view('admin.childPlate.plate');
+    }
+    public function store(Request $request){
+        $db=\DB::table('chilePlate')->insert(['name'=>$request['name'],'pid'=>$request['pid']]);
+        if($db>0){
+            return redirect("/childPlate");
+        }else{
+        	echo '添加失败';
+        }
+    }
 
 }

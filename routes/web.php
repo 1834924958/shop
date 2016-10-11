@@ -48,7 +48,7 @@ Route::resource('shuj', 'home\PlateController');
 
 
 //xxxx
-
+//hello
 
 //进入后台的登录
 
@@ -94,3 +94,4 @@ Route::get('/platee',"Admin\PlateController@index");
 //子版块
 Route::resource("zizi","Admin\PlatesController");
 Route::get('/childPlate',"Admin\PlatesController@index");
+Route::get('/tjz',"Admin\PlatesController@navigation");
