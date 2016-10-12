@@ -16,7 +16,13 @@
                         <div class="clearfix"></div>
                         <br/>
                         <div class="col-md-4" >
-                            <input  type="file" name="photo" class="form-control input-sm m-b-10">
+                                <div style="position: relative;">
+                                    <input type="file" name="photo" class="form-control input-sm m-b-10"style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">
+                                         <label style="position: absolute; background:#7F2E31;display:inline-block;color:white;width: 100px;height: 45px;line-height: 45px;text-align: center;top: -10px;left: 0px;">选择文件</label>
+
+                                    <!-- <input  type="file" name="photo" class="form-control input-sm m-b-10"> -->
+                                 </div>
+
                         </div>
                         <div class="col-md-10">
                             <button type="submit" class="btn btn-sm">确认上传</button>

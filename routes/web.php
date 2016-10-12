@@ -24,7 +24,17 @@ Route::post("/home/login","home\IndexController@doLogin");//登录的表单;
 
 //用户信息
 Route::get("/xinxi","home\IndexController@xinxi");
+
+
+
+//用户头像的修改;
+Route::resource("/home","home\ImagesController");
 //设置路由组;
+
+
+
+
+
 Route::group(["prefix"=>"/lala","middlewaree"=>"myauth"],function(){
 //退出前台管理系统;
 
@@ -73,7 +83,7 @@ Route::get("index",function(){
 	});
 Route::resource("user","Admin\UserController");
 //进行加载图片轮播的效果;
-Route::resource("images","Admin\ImagesController");//执行上传
+Route::resource("images","Admin\ImagesController");
 
 });
 

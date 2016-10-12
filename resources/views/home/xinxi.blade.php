@@ -1,4 +1,4 @@
-@extends("home.head");
+@extends("home.head")
 @section("content")
 <link rel="stylesheet" href="{{ URL::asset('css/userinfo-69727f9f1d.css') }}" type="text/css">
 <script type="text/javascript" async="" src="{{ URL::asset('js/userinfo-e1930fb32c.js') }}"></script>
@@ -13,11 +13,14 @@
 <div class="g-row">
 <div class="g-sub">
 <div class="m-userinfo">
-
-<div class="w-avatar" id="j-sideAvatarWarp">
-
-   <img src=""  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:80px;" >
-     
+<!-- id="j-sideAvatarWarp" -->
+<?php 
+    $tu = \DB::table('user')->where('id',session('homeuser')->id)->get();
+?>
+<div class="w-avatar">
+    @foreach($tu as $tp)
+            <img src=".././images/user/{{ $tp->photo }}"  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:100px;" >
+     @endforeach
 
 <div class="modifyAvatar w-icon-normal icon-normal-camera"></div>
 <div class="mask"></div>
@@ -25,11 +28,16 @@
 <div class="w-nickname"  id="j-sideNickname">{{ session('homeuser')->name  }}</div>
 <!-- 进行头像的修改 -->
     <!-- <div style="position: relative;"> -->
-        <a class="w-button switch" href="">修改头像</a>
+    <?php
+        $user=\DB::table('user')->where('id',session('homeuser')->id )->get();
+    ?>
+    @foreach($user as $tux)
+        <a class="w-button switch" href="/home/{{ $tux->id }}/edit">修改头像</a>
        <!--  <input type="submit" style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">
         <label style="position: absolute; background:#B4A078;display:inline-block;color:#333333;width: 100px;height: 45px;line-height: 45px;text-align: center;top: 10px;left: 40px;">修改头像</label>
        
     </div> -->
+    @endforeach
 </div>
 <script>
 var membershipOn = false;

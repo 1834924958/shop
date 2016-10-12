@@ -1,4 +1,4 @@
-@extends("home.head");
+@extends("home.head")
 @section("content")
 <link rel="stylesheet" href="{{ URL::asset('css/login-79c00dcfbb.css') }}" type="text/css">
 <div class="g-bd" style="margin-top:145px">
