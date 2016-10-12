@@ -18,6 +18,8 @@
 
 
                 <h3 class="block-title"><a href="/admin/user">用户信息管理</a></h3>
+                <h3 class="block-title"><a href="/tianjia">添加用户信息</a></h3>
+
               <!-- 进行搜索 -->
               <center>
                   <form class="form-inline" action="{{ URL('/admin/user') }}">
@@ -29,13 +31,17 @@
                 <br/>
                 <table class="table tile" style="text-align:center;">
                     <thead >
-                        <!-- 引入文件 -->
+                     
 
                         <tr>
                             <th>序列号</th>
                             <th>用户名</th>
                             <th>权限</th>
                             <th>状态</th>
+                            <th>用户头像</th>
+                            <th>用户别名</th>
+                            <th>邮箱</th>
+                            <th>电话</th>
                             <th>操作</th>
                         </tr>
                     </thead>
@@ -50,7 +56,6 @@
                                 @else
                                     会员用户
                                 @endif
-
                             </td>
                             <td>
                                 <button id="user" class="btn btn-sm btn-alt m-r-5">
@@ -61,6 +66,14 @@
                                     @endif
                                 </button>
                             </td>
+                            <td>
+
+                               <img src=".././images/user/{{ $user->photo }}" style="width:50px;height:50px; background-image:url('.././images/user/2.jpg')">
+                            </td>
+                            <td>{{ $user->uname }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->tel }}</td>
+
                             <td>
                                 <a class="btn btn-sm btn-alt m-r-5" href="javascript:doDel({{  $user->id }}) ">删除</a>
                                 <a class="btn btn-sm btn-alt m-r-5" href="/admin/user/{{ $user->id }}/edit">修改</a>

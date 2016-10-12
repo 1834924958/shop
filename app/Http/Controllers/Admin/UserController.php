@@ -82,7 +82,6 @@ class UserController extends Controller
         
     }
 
-
     // 进行修改的操作;
     public function edit($id){
         $user = \DB::table('user')->where('id','=',$id)->first();

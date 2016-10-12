@@ -16,7 +16,7 @@
 <link rel="shortcut icon" href="{{ URL::asset('http://you.163.com/favicon.ico?r=gold') }}" type="image/x-icon">
 <meta property="qc:admins" content="365774662561636375">
 <link rel="stylesheet" href="{{ URL::asset('css/style-dfe1ec3c01.css') }}" type="text/css">
-
+<script type="text/javascript" src="{{ URL::asset('js/jquery-1.8.3.js') }}"></script>
 <script type="text/javascript" async="" src="{{ URL::asset('js/conversion.js') }}"></script><script type="text/javascript">
 (function(){
 var userAgent = window.navigator.userAgent;
@@ -44,7 +44,10 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 .yonghu{display:block;top:8px;position:absolute;right:280px;}
 .tuichu{display:block;top:8px;position:absolute;right:230px;}
 </style>
-<!-- <script type="text/javascript" src='.././js/jquery-1.8.3.js'></script> -->
+<!-- <script type="text/javascript" src='.././js/
+
+
+	'></script> -->
 <script type="text/javascript" src="{{ URL::asset('js/jquery-2.1.4.min.js') }}"></script>
 
 

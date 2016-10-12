@@ -1,4 +1,5 @@
 @extends("home.head")
+
 @section("content")
 <?php   
         

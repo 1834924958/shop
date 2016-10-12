@@ -27,9 +27,20 @@ Route::get("/xinxi","home\IndexController@xinxi");
 
 
 
+
+
+
 //用户头像的修改;
 Route::resource("/home","home\ImagesController");
+// 进入前台的地址首页;
+
+
+ Route::get("/site","home\AddressController@index");
+ // 显示出省市的信息
+ // Route::get("/addressx/{upid}","home\AddressController@find");
 //设置路由组;
+
+
 
 
 

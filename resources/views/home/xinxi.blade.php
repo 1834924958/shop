@@ -44,9 +44,10 @@ var membershipOn = false;
 membershipOn = true;
 </script>
 <div class="m-menu">
-<a href="http://you.163.com/user/info" class="w-menu-item active">个人信息</a>
+<a href="http://you.163.com/coupon" class="w-menu-item active">个人信息</a>
 <a href="http://you.163.com/order/myList" class="w-menu-item ">订单管理</a>
-<a href="http://you.163.com/address/list" class="w-menu-item ">地址管理</a>
+<!-- <a href="/address" class="w-menu-item ">地址管理</a> -->
+<a href="/site" class="w-menu-item ">地址管理</a>
 <a href="http://you.163.com/coupon" class="w-menu-item ">优惠券</a>
 <a href="http://you.163.com/user/giftCard" class="w-menu-item ">礼品卡</a>
 <a href="http://you.163.com/user/securityCenter" class="w-menu-item ">帐号安全</a>
