@@ -6,49 +6,49 @@
         <!-- Deafult Table -->
             <div class="block-area" id="defaultStyle">
                  <!-- 路由中的删除 -->
-                <form action="" method="post" name="mf" style="display:none;">
+                <form action="" method="post" name="lj" style="display:none;">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <input type="hidden" name="_method" value="delete">
                 </form>
-                <h3 class="block-title"> <a href="/admin/images">轮播信息管理</a></h3>
-                <h3 class="block-title"> <a href="/lb">添加</a> </h3>
-                <!-- 进行搜索 -->
+                <h3 class="block-title"> <a href="/admin/blogroll">友情链接信息管理</a></h3>
+                <h3 class="block-title"> <a href="/youq">友情链接的添加</a> </h3>
+                    <!-- 进行搜索 -->
                 <center>
-                  <form class="form-inline" action="{{ URL('/admin/images') }}">
+                  <form class="form-inline" action="{{ URL('/admin/blogroll') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                        图片的别名:<input type="text" name="name" size="6" class="form-control">
+                        友情链接名:<input type="text" name="name" size="6" class="form-control">
                         <input type="submit" value="确认搜索" class="btn btn-primary">
                     </form>
-                 </center>
+            </center>
                 <br/>
                 <table class="table tile" style="text-align:center;">
                     <thead >
                         <!-- 引入文件 -->
                         <tr>
-                            <th>图片序列号</th>
-                            <th>图片别名</th>
-                            <th>图片</th>
+                            <th>友情链接序列号</th>
+                            <th>友情链接名</th>
+                            <th>地址</th>
                             <th>操作</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($list as $images)
+                        @foreach($list as $blogroll)
                         <tr>
-                            <td>{{ $images->id }}</td>
-                            <td>{{ $images->name }}</td>
-                            <td><img src=".././images/tutu/{{ $images->photo }}"  style="width:100px;height:100px;"class="profile-pic animated" ></td>
+                            <td>{{ $blogroll->id }}</td>
+                            <td>{{ $blogroll->name }}</td>
+                            <td>{{ $blogroll->address }}</td>
                             <td>
-                                <a class="btn btn-sm btn-alt m-r-5" href="javascript:SC({{  $images->id }}) ">删除</a>
-                                <a class="btn btn-sm btn-alt m-r-5" href="/admin/images/{{ $images->id }}/edit">修改</a>   
+                                <a class="btn btn-sm btn-alt m-r-5" href="javascript:Del({{  $blogroll->id }}) ">删除</a>
+                                <a class="btn btn-sm btn-alt m-r-5" href="/admin/blogroll/{{ $blogroll->id }}/edit">修改</a>  
                             </td>
                         </tr>
                  @endforeach       
                     </tbody>
                 </table>
-                <!-- 洗洗分页的操作 -->
-                <center >
+                    <!-- 进行分页 -->
+                <div class="media text-center">
                     {!!  $list->appends($where)->render() !!}
-                </center>
+                </div>
             </div>
     </section>
 @endsection

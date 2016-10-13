@@ -12,10 +12,15 @@ class IndexController extends Controller
 	public function index()
 	{
 		// $qwer = \DB::table('plate')->select('name')->get();
-
-			// return view("home.index",["qwer"=>$qwer]);
-		return view("home.index");
+		// 网站的开关的判断,以及跳转页面
+			$on = \DB::table('config')->first();
+			if($on->kai=='0'){
+				return view("home.index");
+			}else{
+				return view('errors.baohu');
+		}
 	}
+	// 跳转信息的页面
 	public function xinxi()
 	{
 		return view("home.xinxi");

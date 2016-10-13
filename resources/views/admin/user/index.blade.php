@@ -68,7 +68,7 @@
                             </td>
                             <td>
 
-                               <img src=".././images/user/{{ $user->photo }}" style="width:50px;height:50px; background-image:url('.././images/user/2.jpg')">
+                               <img src=".././images/user/{{ $user->photo }}" style="width:100px;height:100px; background-image:url('.././images/user/2.jpg')" class="profile-pic animated">
                             </td>
                             <td>{{ $user->uname }}</td>
                             <td>{{ $user->email }}</td>

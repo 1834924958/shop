@@ -8,7 +8,7 @@
                     <h3 class="block-title">修改图片信息</h3>
                     <form class="row form-columned" role="form"  action='/admin/images/{{ $images->id }}' method="post" enctype="multipart/form-data">
                         <!-- 进行更新(修改),其中修改是以put的方式传递的 -->
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="_token" value=a"{{ csrf_token() }}">
                          <input type='hidden' name='_method' value='put'>
 
                         <input type='hidden' name='id' value="{$images.id}">

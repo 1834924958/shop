@@ -36,13 +36,22 @@
                         form.submit();
                     }
                 } 
+                // 轮播图片的删除
                  function SC(tu){
                     if(confirm("确定要删除吗?")){
                         var form = document.mf;
                         form.action = '/admin/images/'+tu;
                         form.submit();
                     }
-                }       
+                } 
+                // 友情链接的删除
+                 function Del(sanc){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.lj;
+                        form.action = '/admin/blogroll/'+sanc;
+                        form.submit();
+                    }
+                }        
         </script>
         <!-- <link rel="icon" type="text/css"> -->
     </head>
@@ -226,8 +235,13 @@
                         </a>
                     </li>
                     <li>
-                        <a class="sa-side-calendar" href="calendar.html">
-                            <span class="menu-item">Calendar</span>
+                        <a class="sa-side-calendar" href="/yq">
+                            <span class="menu-item">友情链接</span>
+                        </a>
+                    </li>
+                      <li>
+                        <a class="sa-side-calendar" href="/pz">
+                            <span class="menu-item">网站开关</span>
                         </a>
                     </li>
                     <li class="dropdown">

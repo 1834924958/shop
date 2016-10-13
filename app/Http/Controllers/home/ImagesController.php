@@ -12,7 +12,7 @@ class ImagesController extends Controller
     //执行前台上传头像的操作
     public function edit($id){
     	$user = \DB::table('user')->where('id','=',$id)->first();
-        return view('home.edit',['user'=>$user]);
+        return view('home.images.edit',['user'=>$user]);
     }
     public function update($id,Request $request){
       		// dd($request);

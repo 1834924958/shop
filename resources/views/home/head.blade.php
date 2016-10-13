@@ -5,11 +5,21 @@
 		
 		
 ?>
+<!-- 网站的开关的控制 -->
+<?php  
+	$kai = \DB::table('config')->get();
+	// // 网页修护的时候进行网页的跳转
+
+?>
 <html class="js rgba opacity cssanimations borderradius boxshadow csstransitions csstransforms textshadow"><head>
+@foreach($kai as $wlkg)
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>网易严选 - 以严谨的态度，为中国消费者甄选天下优品</title>
-<meta name="keywords" content="网易严选,严选,网易优选,网易甄选,网易优品,网易精选,甄选家,严选态度">
+<!-- 网页的标题 -->
+<title>{{  $wlkg->title}}</title>
+<!-- 网页的关键字 -->
+<meta name="{{ $wlkg->keywords }}" content="网易严选,严选,网易优选,网易甄选,网易优品,网易精选,甄选家,严选态度">
 <meta name="description" content="网易严选秉承网易一贯的严谨态度，深入世界各地，严格把关所有商品的产地、工艺、原材料，甄选居家、厨房、饮食等各类商品，力求给你最优质的商品。">
+@endforeach
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -112,9 +122,18 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 <div id="js-funcTabWrap" style="height: 204px;">
 <div id="js-funcTab" class="m-funcTab m-funcTab-fixed">
 <div class="g-row">
+
+
 <a class="tab-logo" href="http://you.163.com/" title="网易严选"></a>
 <div class="tab-inner">
 <div class="m-search">
+<?php
+	$tup = \DB::table('config')->get();
+?>
+	<!-- 网络的LOCO -->
+<!-- @foreach($tup as $tupian)
+	<img src=".././images/config/{{ $tupian->photo }}" style="width:100px;height:100px;">
+@endforeach -->
 <a class="w-button-cart" href="http://you.163.com/cart">
 <i class="w-icon-normal icon-normal-blackcart"></i>
 <i class="w-icon-normal icon-normal-badge j-cart-num">0</i>
@@ -280,9 +299,29 @@ document.writeln('<style type="text/css">' + 'body,button,input,select,textarea,
 <b class="split">|</b>
 <a class="text" href="http://1.163.com/?from=yanxuan" target="_blank">1元夺宝</a>
 </nav>
+<br/>
+<?php 
+	$yq = \DB::table('blogroll')->get();
+?>
+<!-- 友情链接的 -->
+<nav class="nav">
+<a class="text" href="">友情链接:</a>
+<b class="split">|</b>
+@foreach($yq as $lj)
+	<a class="text" href="http://{{ $lj->address}}">{{ $lj->name }}
+	<b class="split">|</b>
+
+@endforeach
+</nav>
+<?php 
+	$qwe = \DB::table('config')->get();
+?>
+<!-- 网页的版权部分 -->
+@foreach($qwe as $wen)
 <p class="copyright">
-网易公司版权所有 © 1997-<script type="text/javascript" src=".././js/year.js"></script>2016 ICP证：浙B2-20160106 &nbsp;浙ICP备15041168号
+	{{ $wen->copyright }} © 1997-<script type="text/javascript" src=".././js/year.js"></script>2016 ICP证：浙B2-20160106 &nbsp;浙ICP备15041168号
 </p>
+@endforeach
 </div>
 </div>
 </div>

@@ -81,7 +81,6 @@ class UserController extends Controller
         }
         
     }
-
     // 进行修改的操作;
     public function edit($id){
         $user = \DB::table('user')->where('id','=',$id)->first();
@@ -90,7 +89,6 @@ class UserController extends Controller
 
       public function update($id,Request $request){
         $a = $request->all();
-
 
         $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$a['name'],'pass'=>$a['pass']]);
         //如果修改成功跳转到主界面;
