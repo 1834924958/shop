@@ -26,10 +26,6 @@ Route::post("/home/login","home\IndexController@doLogin");//登录的表单;
 Route::get("/xinxi","home\IndexController@xinxi");
 
 
-
-
-
-
 //用户头像的修改;
 Route::resource("/home","home\ImagesController");
 //用户密码的修改;
@@ -106,7 +102,15 @@ Route::resource("config","Admin\PeizController");
 
 
 
-Route::post("/status","Admin\UserController@status");
+
+//启用和禁用的判断,也就是对用户登录的判断;
+Route::get("/status/{id}","Admin\UserController@status");
+
+
+
+
+
+
 
 //板块
 Route::get('/navigation',"Admin\plateController@navigation");

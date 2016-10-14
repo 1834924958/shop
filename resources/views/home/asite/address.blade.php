@@ -10,7 +10,7 @@
 			action="/diz">
 			 <input type='hidden' name='_token' value="{{ csrf_token() }}">
 
-				<div class="w-tit-addr">新建地址</div>                           
+				<div class="w-tit-addr">新建地址</div>                         
 				 	<input name="id" value="0" type="hidden">                            
 				 	<div class="w-row-addr" style="margin-top:40px">                                
 				 		<div class="w-col-2 ">                                    

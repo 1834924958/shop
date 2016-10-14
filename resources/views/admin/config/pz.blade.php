@@ -27,11 +27,13 @@
                             <input name="copyright" type="text" class="form-control input-sm m-b-10" placeholder="你好,请输入网站的版权" value="{{ $config->copyright }}">
                         </div>
                        
-                             <div class="clearfix"></div>
+                        <div class="clearfix"></div>
                          <div class="col-md-4">
                             <input name="kai" type="radio" class="form-control input-sm m-b-10" value="0">关
+                            <br/><br/>
                             <input name="kai" type="radio" class="form-control input-sm m-b-10" value="1">开
                         </div>
+                        <br/><br/>
                         <br/><br/>
                         <div class="clearfix"></div>
                          <div class="col-md-4">

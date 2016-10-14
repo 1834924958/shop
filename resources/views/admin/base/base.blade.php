@@ -21,6 +21,7 @@
         <link href="{{ asset ('admin/css/generics.css') }}" rel="stylesheet"> 
         <link rel="stylesheet" type="text/css" href="{{ asset ('css/bootstrap.min.css') }}">
         <script type="text/javascript">
+                 //用户的删除
                 function doDel(id){
                     // confirm():显示带有一段消息以及确认按钮和取消按钮的对话框;
                     if(confirm("确定要删除吗?")){
@@ -28,7 +29,8 @@
                         form.action = '/admin/user/'+id;
                         form.submit();
                     }
-                }            
+                }
+                // 导航条的删除
                 function doDe(dd){
                     if(confirm("确定要删除吗?")){
                         var form = document.myfor;
@@ -105,7 +107,8 @@
                     <!-- Profile Menu -->
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
-                            <img class="profile-pic animated" src="{{ asset('admin/img/profile-pic.jpg') }}" alt="">
+                            <!-- 用户的头像 -->
+                            <img class="profile-pic animated" src=".././images/user/{{ session('adminuser')->photo }}" width="100px" height="100px" alt="">
                         </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
@@ -186,7 +189,7 @@
                 <!-- Side Menu -->
                 <ul class="list-unstyled side-menu">
                     <li class="active">
-                        <!-- <a class="sa-side-home" href="index.php?m=stu"> -->
+                        <!--用户信息的页面-->
                         <a class="sa-side-home" href="/xianshi">
                             <span class="menu-item">显示用户信息</span>
                         </a>
@@ -218,7 +221,7 @@
                             <li><a href="form-validation.html">Form Validation</a></li>
                         </ul>
                     </li>
-                    <!-- 图片轮播显示的页面 -->
+                    <!-- 图片轮播显示的后台页面,然后管理前台图片的轮播-->
                     <li>
                         <a class="sa-side-typography" href="/lunbo">
                             <span class="menu-item">图片轮播管理</span>
@@ -234,11 +237,13 @@
                             <span class="menu-item">File Manager</span>
                         </a>
                     </li>
+                    <!--后台的友情链接然后在前台进行遍历 -->
                     <li>
                         <a class="sa-side-calendar" href="/yq">
                             <span class="menu-item">友情链接</span>
                         </a>
                     </li>
+                    <!-- 进入网站开关的页面 -->
                       <li>
                         <a class="sa-side-calendar" href="/pz">
                             <span class="menu-item">网站开关</span>

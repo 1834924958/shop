@@ -1,19 +1,18 @@
 <html>
 	<head>
-		<title>阿牛的帝国</title>
+		<title>网站维护中</title>
 		<style>
 		img{
 		width:300px;
 		height:300px;
 		border-radius:50%
-	
 		}
 		</style>
 	</head>
 	<body bgcolor="pink">
 		<marquee>
-			<abbr title="阿牛的MM系统">
-			网页正在修护,请稍等
+			<abbr title="天眼系统">
+			网页正在修护,请稍等!!!!
 			</abbr>
 		</marquee>
 		<br/>
@@ -22,7 +21,7 @@
 		后台正在维护
 		<br/>
 		<a href="oy.html"><img src="./images/config/1.jpg"></a>
-	维护网页中
+		亲,维护网页中,请客官稍等一下
 		<a href="oe.html"><img src="./images/config/2.jpg"></a>
 		<img src="./images/config/3.jpg">
 		<img src="./images/config/5.jpg">
@@ -41,7 +40,6 @@
 			<img src="./images/config/2.jpg"/>
 			<img src="./images/config/3.jpg"/>
 			<img src="./images/config/4.jpg"/>
-			</marquee>
-			
+			</marquee>	
 	</body>
 </html>

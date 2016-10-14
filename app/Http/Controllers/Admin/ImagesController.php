@@ -69,7 +69,7 @@ class ImagesController extends Controller
     		$filename = time().rand(1000,9999).".".$ext;//新文件名
     		$file->move("./images/tutu/",$filename);
              \DB::table('images')->insertGetId(['name'=>$request->name,'photo'=>$filename]);
-            return redirect("/admin/images");   
+            return redirect("/admin/images");  
     	}
     }
     //执行修改的操作;

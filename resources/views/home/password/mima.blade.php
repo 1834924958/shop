@@ -45,7 +45,12 @@ membershipOn = true;
 </script>
 <div class="m-menu">
 <a href="/xinxi" class="w-menu-item active">个人信息</a>
-<a href="/mima" class="w-menu-item active">修改密码</a>
+<?php 
+    $mima = \DB::table('user')->where('id',session('homeuser')->id)->get();
+?>
+@foreach($mima as $mm)
+    <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active">修改密码</a>
+@endforeach
 <a href="http://you.163.com/order/myList" class="w-menu-item ">订单管理</a>
 <!-- <a href="/address" class="w-menu-item ">地址管理</a> -->
 <a href="/site" class="w-menu-item ">地址管理</a>
@@ -64,22 +69,23 @@ membershipOn = true;
         </div>                
         <div class="popwin-bd j-w-dialog-content" >               
             <form class="m-form-addr j-form" novalidate="" method="post"
-            action="">
+            action="/mima/{{ $mm->id }}">      
                 <input type='hidden' name='_token' value="{{ csrf_token() }}">
+                <div class="w-tit-addr">修改密码</div>                         
                 <input type='hidden' name='_method' value='put'>
-                    <input name="id" value="0" type="hidden">                          
+                  <input name="id"  type="hidden" value="{ $mm.id }">
                     <div class="w-row-addr" style="margin-top:40px;margin-left:60px;">                                
                         <div class="w-col-2 ">                                    
-                            <span class="w-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>                                    
+                          <span class="w-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>                                    
                             <div class="w-error-warp j-error-wrap">                                    
-                                <input class="w-ipt" name="" value="" tabindex="1" type="text" placeholder="请在此输入新密码">
+                                <input class="w-ipt"  value="" tabindex="1" type="password" name="pass" placeholder="请在此输入新密码">
                             </div>                                
                         </div> 
                         <br/><br/><br/><br/><br/>                                                             
                         <div class="w-col-2" style="width:275px;">                                    
                             <span class="w-label">确认密码：</span>                                    
-                            <div class="w-error-warp j-error-wrap">                                    
-                                <input class="w-ipt j-mobileFilter" name="pass" value="" required="required" tabindex="2" type="text" placeholder="请再次确认密码">
+                            <div class="w-error-warp j-error-wrap">                              
+                                <input class="w-ipt j-mobileFilter"  required="required" tabindex="2" type="password"  name="password" placeholder="请再次确认密码">
                             </div>                                
                         </div>
                         <div style="clear:both"></div>                            

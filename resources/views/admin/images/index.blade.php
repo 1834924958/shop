@@ -36,7 +36,7 @@
                         <tr>
                             <td>{{ $images->id }}</td>
                             <td>{{ $images->name }}</td>
-                            <td><img src=".././images/tutu/{{ $images->photo }}"  style="width:100px;height:100px;"class="profile-pic animated" ></td>
+                            <td><img src=".././images/tutu/{{ $images->photo }}" class="profile-pic animated" ></td>
                             <td>
                                 <a class="btn btn-sm btn-alt m-r-5" href="javascript:SC({{  $images->id }}) ">删除</a>
                                 <a class="btn btn-sm btn-alt m-r-5" href="/admin/images/{{ $images->id }}/edit">修改</a>   

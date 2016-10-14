@@ -45,7 +45,12 @@ membershipOn = true;
 </script>
 <div class="m-menu">
 <a href="/xinxi" class="w-menu-item active">个人信息</a>
-<a href="/mima" class="w-menu-item active">修改密码</a>
+<?php 
+    $mima = \DB::table('user')->where('id',session('homeuser')->id)->get();
+?>
+@foreach($mima as $mm)
+    <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active">修改密码</a>
+@endforeach
 <a href="http://you.163.com/order/myList" class="w-menu-item ">订单管理</a>
 <!-- <a href="/address" class="w-menu-item ">地址管理</a> -->
 <a href="/site" class="w-menu-item active">地址管理</a>
@@ -67,7 +72,7 @@ membershipOn = true;
     <br/>
 </div>
 <br/>
-<table class="m-addressList" border='1' style="width:880px; text-align:center;"><colgroup><col class="w1"><col class="w2"><col class="w3"><col class="w4"></colgroup><tbody>
+<table class="m-addressList" border='1' style="width:880px; text-align:center;"><colgroup><col class="w1"><col class="w2"><col class="w3"><col class="w4"></colgroup>
             <tr style="height:50px;background-color:#F5F5F5;">
                 <th>收货人</th>
                 <th>地址</th>
@@ -75,7 +80,11 @@ membershipOn = true;
                 <th>操作</th>
             </tr>
             <!-- 先进行遍历数据库中的地址 -->
-        @foreach($list as $address)
+    <tbody>
+        <?php
+             $tu = \DB::table('user')->where('id',session('homeuser')->id)->get();
+        ?>
+        @foreach($tu as $address)
             <tr style="height:80px;">
             <td>{{ $address->uname }}</td>
             <td>{{ $address->address }}</td>
@@ -86,9 +95,32 @@ membershipOn = true;
             </td>
             </tr>
         @endforeach
-</tbody>
+    </tbody>
 </table>
 </div>
+    <script type="text/javascript">
+        //进行获取上面所有的节点;
+        var list =document.getElementsByTagName('tr');
+            //进行遍历所有的td;
+            for(var i=0;i<list.length;i++){
+             if(i==0){
+                list[i].style.backgroundColor = '#F5F5F5';
+            }else{
+                // 进行添加鼠标的移入事
+                var color = 'white';
+                list[i].onmouseover = function(){
+            //将原来的颜色保存到变量中;
+                color  = this.style.backgroundColor;
+                this.style.backgroundColor = '#F5F5F5';
+                }
+                //进行添加鼠标的移出事件;
+                list[i].onmouseout = function(){
+                    this.style.backgroundColor = color;
+                }
+             
+             }
+        }
+    </script>
 </div>
 </div>
 </div>

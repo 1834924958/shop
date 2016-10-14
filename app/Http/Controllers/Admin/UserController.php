@@ -33,7 +33,7 @@ class UserController extends Controller
 
         }
 
-        $list = $db->paginate(4);
+        $list = $db->paginate(3);
         //模板;
         return view("admin.user.index")->with(["list"=>$list,"where"=>$where]);
     }
@@ -45,16 +45,19 @@ class UserController extends Controller
         if($m>0){
             //成功会跳转到index()中,也就是执行删除后跳到
             //用户浏览信息的页面;
-            return redirect("/admin/user");
+            return redirect("/xianshi");
         }
     }
     //状态
     public function status(Request $request){
         //进行获得删除的影响行数;
-        if($request->button('user')==0){
-            $m = \DB::table('user')->where('id','=',$id)->update(['status'=>1]);
+        $id = $request->id;
+        $status = \DB::table('user')->where('id',$id)->first();
+        $status = $status->status;
+        if($status == "0"){
+            $m = \DB::table('user')->where('id',$id)->update(['status'=>'1']);
         }else{
-            $m = \DB::table('user')->where('id','=',$id)->update(['name'=>0]);
+            $m = \DB::table('user')->where('id',$id)->update(['status'=>'0']);
         }
         if($m>0){
             //成功会跳转到index()中,也就是执行删除后跳到
@@ -71,13 +74,26 @@ class UserController extends Controller
    //进行添加数据;
    public function store(Request $request){
         //接收到add.blade.php中的form表中中的值;
-     $b = $request->all();
+     // $b = $request->all();
+    // dd($request->name);
      // dd($b);
-        $t = \DB::table('user')->insertGetId([ 'name'=>$b['name'],'pass'=>$b['pass'],'auth'=>$b['auth']]);
-        if ($t > 0){
-            return redirect("/admin/user");
-        }else{
-            echo '添加信息失败';
+        //2 获得上传文件的对象 返回一个UploadedFile对象 
+            $file = $request->file('photo');
+            // dd($file);
+        if($file->isValid())
+        {
+            $ext = $file->getClientOriginalExtension();//获得后缀 
+            $filename = time().rand(1000,9999).".".$ext;//新文件名
+            $file->move("./images/user/",$filename);
+                if($request->pass == $request->password)
+                {
+                    $t = \DB::table('user')->insertGetId([ 'name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
+                            return redirect("/admin/user");
+                }else{
+
+                    return redirect('/tianjia');
+                    // return view('admin.user.add');
+                }
         }
         
     }
@@ -88,15 +104,27 @@ class UserController extends Controller
     }
 
       public function update($id,Request $request){
-        $a = $request->all();
+        // $a = $request->all();
+        // dd($request->id);
+          //2 获得上传文件的对象 返回一个UploadedFile对象 
+            $file = $request->file('photo');
+            // dd($file);
+            if($file->isValid())
+            {   
 
-        $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$a['name'],'pass'=>$a['pass']]);
-        //如果修改成功跳转到主界面;
-        if($xg>0){
-            // return $this->index();
-            return redirect("/admin/user");
-        }else{
-            echo '修改失败';
-        }   
+                $ext = $file->getClientOriginalExtension();//获得后缀 
+                $filename = time().rand(1000,9999).".".$ext;//新文件名
+                $file->move("./images/user/",$filename);
+                if($request->pass == $request->password)
+                {
+                    $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
+                    //如果修改成功跳转到主界面;
+                        return redirect("/admin/user");
+                }else{
+                    
+                    return view('admin.user.info');
+                    // return redirect("/tianjia");
+                } 
+            }
     }
 }

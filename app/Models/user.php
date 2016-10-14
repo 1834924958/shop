@@ -29,7 +29,7 @@ class  User extends Model
             $db = \DB::table('user')->where("name",$name)->first();
             // dd($db);
             if($db){
-                if($db->pass == $pass && $db->auth == 1){
+                if($db->pass == $pass && $db->status == 1 && $db->auth == 1){
                     return $db;//返回当前对象
                 }
             }
