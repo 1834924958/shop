@@ -54,9 +54,6 @@ Route::get('/img/delegate',function(){
 });
 Route::resource('shuj', 'home\PlateController');
 
-
-
-
 //xxxx
 //hello
 

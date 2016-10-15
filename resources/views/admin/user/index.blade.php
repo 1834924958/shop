@@ -42,6 +42,7 @@
                             <th>用户别名</th>
                             <th>邮箱</th>
                             <th>电话</th>
+                            <th>地址</th>
                             <th>操作</th>
                         </tr>
                     </thead>
@@ -78,6 +79,7 @@
                             <td>{{ $user->uname }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->tel }}</td>
+                            <td>{{ $user->address }}</td>
 
                             <td>
                                 <a class="btn btn-sm btn-alt m-r-5" href="javascript:doDel({{  $user->id }}) ">删除</a>

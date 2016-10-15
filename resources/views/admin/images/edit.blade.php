@@ -6,6 +6,7 @@
             <!-- Multi Column -->
                 <div class="block-area" id="multi-column">
                     <h3 class="block-title">修改图片信息</h3>
+                <h3 class="block-title"> <a href="/admin/images">轮播信息管理</a></h3>
                     <form class="row form-columned" role="form"  action='/admin/images/{{ $images->id }}' method="post" enctype="multipart/form-data">
                         <!-- 进行更新(修改),其中修改是以put的方式传递的 -->
                             <input type="hidden" name="_token" value=a"{{ csrf_token() }}">

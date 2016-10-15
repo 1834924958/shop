@@ -62,12 +62,14 @@ membershipOn = true;
 
 
 
-
-
-
 <div class="g-main">
 <div class="j-address-con">
     <div class="w-address-top"><div class="title">已保存收货地址(地址最多10条，还能保存9条)</div>
+       <!-- 路由中的删除 -->
+                <form action="" method="post" name="sc" style="display:none;">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_method" value="delete">
+                </form>
     <a href="/diz" class="w-link add j-add" style="float:right;">+新建地址</a>
     <br/>
 </div>
@@ -80,24 +82,36 @@ membershipOn = true;
                 <th>操作</th>
             </tr>
             <!-- 先进行遍历数据库中的地址 -->
-    <tbody>
-        <?php
-             $tu = \DB::table('user')->where('id',session('homeuser')->id)->get();
-        ?>
-        @foreach($tu as $address)
-            <tr style="height:80px;">
+    <tbody> 
+        @foreach($list as $address)
+            <tr style="height:60px;">
             <td>{{ $address->uname }}</td>
-            <td>{{ $address->address }}</td>
+            <td>
+                {{ $address->province }}
+                {{ $address->city }}
+                {{ $address->area }}
+                {{ $address->row }}
+                {{ $address->address }}
+            </td>
             <td>{{ $address->tel }}</td>
             <td>
                 <a href="/address/{{ $address->id }}/edit" class="w-link j-update" data-id="2863551">编辑</a>
-                <a href="javascript:;" class="w-link w-link-1 j-delete" data-id="2863551">删除</a>
+                <a href="javascript:dodel({{ $address->id }})" class="w-link w-link-1 j-delete" data-id="2863551">删除</a>
             </td>
             </tr>
         @endforeach
     </tbody>
 </table>
 </div>
+    <script type="text/javascript">
+            function dodel(san){
+                if(confirm("你确定要删除吗")){
+                    var form = document.sc ;
+                    form.action = '/address/'+san;
+                    form.submit();
+                }
+            }
+    </script>
     <script type="text/javascript">
         //进行获取上面所有的节点;
         var list =document.getElementsByTagName('tr');

@@ -10,7 +10,7 @@
 			action="/address/{{ $address->id }}">
 			 	<input type='hidden' name='_token' value="{{ csrf_token() }}">
 			    <input type='hidden' name='_method' value='put'>
-			     <input type='hidden' name='id' value="{$user.id}">
+			     <input type='hidden' name='id' value="{$address.id}">
 				<div class="w-tit-addr">编辑地址</div>                           
 				 	<input name="id" value="0" type="hidden">                            
 				 	<div class="w-row-addr" style="margin-top:40px">                                
@@ -34,9 +34,7 @@
 				 			<div class="w-error-warp j-error-wrap" id="fid" style="margin-right:11px;margin-right:7px;">                                    
 				 				<div style="clear:both"></div>                                    
 				 			</div>                       
-				 			<input name="provinceName" class="j-provincename" value="" type="hidden">                                    
-				 			<input name="cityName" class="j-cityname" value="" type="hidden">                                    
-				 			<input name="districtName" class="j-districtname" value="" type="hidden">                                    
+				 		                                 
 				 			<div style="clear:both"></div>                                
 				 		</div>
 				 		<div style="clear:both"></div>                            
@@ -50,8 +48,6 @@
 				 		</div>
 				 		<div style="clear:both"></div>                            
 				 	</div> 
-
-
 				 	<script type="text/javascript">
 				 	//js函数 实现select option节点的加载 
 					      function loadDistrict(upid){
@@ -66,7 +62,7 @@
 					              return;
 					            }
 
-					            var select = "<select class='form-contorl'>";
+					            var select = "<select  name='xia' class='form-contorl'>";
 					            select +="<option value='-2'>-请选择-</option>";
 					            for(var i=0;i<data.length;i++){
 					              select +="<option value='"+data[i].id+"'>"+data[i].name+"</option>";

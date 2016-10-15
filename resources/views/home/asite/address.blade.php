@@ -7,11 +7,10 @@
 		</div>                
 		<div class="popwin-bd j-w-dialog-content">                
 			<form class="m-form-addr j-form" novalidate="" method="post"
-			action="/diz">
+			action="/address">
 			 <input type='hidden' name='_token' value="{{ csrf_token() }}">
 
 				<div class="w-tit-addr">新建地址</div>                         
-				 	<input name="id" value="0" type="hidden">                            
 				 	<div class="w-row-addr" style="margin-top:40px">                                
 				 		<div class="w-col-2 ">                                    
 				 			<span class="w-label">收货人：</span>                                    
@@ -33,9 +32,10 @@
 				 			<div class="w-error-warp j-error-wrap" id="fid" style="margin-right:11px;margin-right:7px;">                                    
 				 				<div style="clear:both"></div>                                    
 				 			</div>                       
-				 			<input name="provinceName" class="j-provincename" value="" type="hidden">                                    
-				 			<input name="cityName" class="j-cityname" value="" type="hidden">                                    
-				 			<input name="districtName" class="j-districtname" value="" type="hidden">                                    
+				 		<!-- 	<input name="province" class="j-provincename" value="" type="hidden">                                    
+				 			<input name="city" class="j-cityname" value="" type="hidden">                                    
+				 			<input name="area" class="j-districtname" value="" type="hidden">
+				 			<input name="row" class="j-districtname" value="" type="hidden"> -->                                 
 				 			<div style="clear:both"></div>                                
 				 		</div>
 				 		<div style="clear:both"></div>                            
@@ -66,8 +66,7 @@
 					            if(data.length==0){
 					              return;
 					            }
-
-					            var select = "<select class='form-contorl'>";
+					            var select = "<select name='address_xia' class='form-contorl'>";
 					            select +="<option value='-2'>-请选择-</option>";
 					            for(var i=0;i<data.length;i++){
 					              select +="<option value='"+data[i].id+"'>"+data[i].name+"</option>";

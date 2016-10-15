@@ -4,7 +4,8 @@
         <section id="content" class="container">
             <!-- Multi Column -->
                 <div class="block-area" id="multi-column">
-                    <h3 class="block-title">添加用户的信息</h3>
+                <h3 class="block-title"><a href="/tianjia">添加用户信息</a></h3>
+                <h3 class="block-title"><a href="/admin/user">用户信息管理</a></h3>
                     <form class="row form-columned" role="form" method='post' action='/admin/user' enctype="multipart/form-data">
                      <input type='hidden' name='_token' value="{{ csrf_token() }}">
                         <div class="col-md-4">
