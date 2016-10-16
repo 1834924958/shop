@@ -32,11 +32,7 @@
         $user=\DB::table('user')->where('id',session('homeuser')->id )->get();
     ?>
     @foreach($user as $tux)
-        <a class="w-button switch" href="/home/{{ $tux->id }}/edit">修改头像</a>
-       <!--  <input type="submit" style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">
-        <label style="position: absolute; background:#B4A078;display:inline-block;color:#333333;width: 100px;height: 45px;line-height: 45px;text-align: center;top: 10px;left: 40px;">修改头像</label>
-       
-    </div> -->
+        <a class="w-button switch" href="/homeee/{{ $tux->id }}/edit">修改头像</a>
     @endforeach
 </div>
 <script>

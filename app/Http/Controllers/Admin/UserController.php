@@ -80,21 +80,24 @@ class UserController extends Controller
         //2 获得上传文件的对象 返回一个UploadedFile对象 
             $file = $request->file('photo');
             // dd($file);
-        if($file->isValid())
-        {
-            $ext = $file->getClientOriginalExtension();//获得后缀 
-            $filename = time().rand(1000,9999).".".$ext;//新文件名
-            $file->move("./images/user/",$filename);
-                if($request->pass == $request->password)
-                {
-                    $t = \DB::table('user')->insertGetId([ 'name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
-                            return redirect("/admin/user");
-                }else{
+            if($file == null){
+                    return view('admin.user.add');
+            }
+                 if($file->isValid())
+                    {
+                        $ext = $file->getClientOriginalExtension();//获得后缀 
+                        $filename = time().rand(1000,9999).".".$ext;//新文件名
+                        $file->move("./images/user/",$filename);
+                            if($request->pass == $request->password)
+                            {
+                                $t = \DB::table('user')->insertGetId([ 'name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
+                                        return redirect("/admin/user");
+                            }else{
 
-                    return redirect('/tianjia');
-                    // return view('admin.user.add');
-                }
-        }
+                                return redirect('/tianjia');
+                                // return view('admin.user.add');
+                            }
+                    }
         
     }
     // 进行修改的操作;
@@ -109,22 +112,26 @@ class UserController extends Controller
           //2 获得上传文件的对象 返回一个UploadedFile对象 
             $file = $request->file('photo');
             // dd($file);
-            if($file->isValid())
-            {   
-
-                $ext = $file->getClientOriginalExtension();//获得后缀 
-                $filename = time().rand(1000,9999).".".$ext;//新文件名
-                $file->move("./images/user/",$filename);
-                if($request->pass == $request->password)
-                {
-                    $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
-                    //如果修改成功跳转到主界面;
-                        return redirect("/admin/user");
-                }else{
-                    
-                    return view('admin.user.info');
-                    // return redirect("/tianjia");
-                } 
+            if($file == null){
+                $user = \DB::table('user')->where('id','=',$id)->first();
+                return view('admin.user.edit',['user'=>$user]);
             }
+                if($file->isValid())
+                {   
+
+                    $ext = $file->getClientOriginalExtension();//获得后缀 
+                    $filename = time().rand(1000,9999).".".$ext;//新文件名
+                    $file->move("./images/user/",$filename);
+                    if($request->pass == $request->password)
+                    {
+                        $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
+                        //如果修改成功跳转到主界面;
+                            return redirect("/admin/user");
+                    }else{
+                        
+                        return view('admin.user.info');
+                        // return redirect("/tianjia");
+                    } 
+                }
     }
 }

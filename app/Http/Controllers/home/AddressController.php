@@ -45,7 +45,6 @@ class AddressController extends Controller
     //添加数据
     public function store(Request $request)
     {    
-        
         // dd($request->all());
         $xia = $request->address_xia;
         // var_dump($xia);die;
@@ -117,7 +116,7 @@ class AddressController extends Controller
          $provinces = $city->upid;
          if($provinces == 0)
          {
-               $xg = \DB::table('address')->where('id','=',$id)->update(['uname'=>$request->uname,'tel'=>$request->tel,'province'=>''s,'city'=>$city->name,'area'=>$area->name,'row'=>$row->name,'address'=>$request->address,'uid'=>session('homeuser')->id]);
+               $xg = \DB::table('address')->where('id','=',$id)->update(['uname'=>$request->uname,'tel'=>$request->tel,'province'=>'','city'=>$city->name,'area'=>$area->name,'row'=>$row->name,'address'=>$request->address,'uid'=>session('homeuser')->id]);
             \DB::table('user')->where('id',session('homeuser')->id)->update(['address'=>$city->name.$area->name.$row->name.$request->address]);
 
          //如果修改成功跳转到主界面;

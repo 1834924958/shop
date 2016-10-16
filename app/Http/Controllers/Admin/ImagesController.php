@@ -62,6 +62,10 @@ class ImagesController extends Controller
     	//2 获得上传文件的对象 返回一个UploadedFile对象 
     		$file = $request->file('photo');
              // dd($file);
+
+        if($file == null){
+          return view('admin.images.add');
+        }
     	//3 执行上传
     	// 当前文件路径使用realpath("./")查看
     	if($file->isValid()){
@@ -77,15 +81,17 @@ class ImagesController extends Controller
         $images = \DB::table('images')->where('id','=',$id)->first();
         return view('admin.images.edit',['images'=>$images]);
     }
-
       public function update($id,Request $request){
-
         // dd($request);
         $file = $request->file('photo');
              // dd($file);
+        if($file == null){
+            $images = \DB::table('images')->where('id','=',$id)->first();
+          return view('admin.images.edit',['images'=>$images]);
+        }
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
-        if($file->isValid()){
+            if($file->isValid()){
             $ext = $file->getClientOriginalExtension();//获得后缀 
             $filename = time().rand(1000,9999).".".$ext;//新文件名
             $file->move("./images/tutu/",$filename);

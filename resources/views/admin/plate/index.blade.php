@@ -33,6 +33,11 @@
                         <tr>
                             <th>板块ID</th>
                             <th>主板块名</th>
+
+                            <th>主板块图片</th>
+                            <th>主版块简介</th>
+
+
                             <th>操作</th>
                         </tr>
                     </thead>
@@ -41,6 +46,8 @@
                         <tr>
                             <td>{{ $plate->id }}</td>
                             <td>{{ $plate->name }}</td>
+                            <td><img src=".././images/child/{{ $plate->photo }}" style="width:80px;height:80px;"></td>
+                            <td>{{ $plate->pname }}</td>
                             <td>
                                 <a class="btn btn-sm btn-alt m-r-5" href="javascript:doDe({{  $plate->id }}) ">删除</a>
                                 <a class="btn btn-sm btn-alt m-r-5" href="/plate/{{ $plate->id }}/edit">修改</a>

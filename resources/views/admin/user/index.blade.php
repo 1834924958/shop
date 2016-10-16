@@ -84,6 +84,7 @@
                             <td>
                                 <a class="btn btn-sm btn-alt m-r-5" href="javascript:doDel({{  $user->id }}) ">删除</a>
                                 <a class="btn btn-sm btn-alt m-r-5" href="/admin/user/{{ $user->id }}/edit">修改</a>
+                                 <a class="btn btn-sm btn-alt m-r-5" href="/admin/car">购物车</a>
                             </td>
                         </tr>
                  @endforeach       

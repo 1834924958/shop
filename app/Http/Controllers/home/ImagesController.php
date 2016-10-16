@@ -17,8 +17,12 @@ class ImagesController extends Controller
     public function update($id,Request $request){
       		// dd($request);
 	        // 进行头像的修改;
+    	$user = \DB::table('user')->where('id','=',$id)->first();
 	        $file = $request->file('photo');
          		// dd($file);
+	        if($file == null){
+	        	return view('home.images.edit',['user'=>$user]);
+	        }else{
 	        if($file->isValid()){
 	         $ext = $file->getClientOriginalExtension();//获得后缀 
            		 $filename = time().rand(1000,9999).".".$ext;//新文件名
@@ -30,6 +34,8 @@ class ImagesController extends Controller
 	           			echo '修改失败';
 	           		}	
 	 		}
+	 	}
+
 	 }
 }
 

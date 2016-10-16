@@ -6,6 +6,9 @@
         <!-- Deafult Table -->
             <div class="block-area" id="defaultStyle">
                 <h3 class="block-title"> <a href="/admin/config">网站配置信息</a></h3>
+                @foreach($list as $pz)
+                    <h3 class="block-title"> <a href="/admin/config/{{ $pz->id }}/edit">网站配置信息修改</a></h3>
+                @endforeach
                 <br/>
                 <table class="table tile" >
                     <thead>

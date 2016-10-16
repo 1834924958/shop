@@ -27,6 +27,12 @@ class PeizController extends Controller
 	  // dd($request);
         $file = $request->file('photo');
              // dd($file);
+        // 如果没有文件,那么它还会跳转到修改页面;
+        if($file == null){
+            $config = \DB::table('config')->where('id','=',$id)->first();
+        // dd($config);
+            return view('admin.config.pz',['config'=>$config]);
+        }
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
         if($file->isValid()){

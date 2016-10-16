@@ -37,7 +37,32 @@
                         form.action = '/plate/'+dd;
                         form.submit();
                     }
-                } 
+
+                }    
+                function doD(dd){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.myfo;
+                        form.action = '/zizi/'+dd;
+                        form.submit();
+                    }
+                }
+                function doDD(dd){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.myf;
+                        form.action = '/shops/'+dd;
+                        form.submit();
+                    }
+                }
+                function dodf(dd){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.qwer;
+                        form.action = '/car/'+dd;
+                        form.submit();
+                    }
+                }
+              
+
+                
                 // 轮播图片的删除
                  function SC(tu){
                     if(confirm("确定要删除吗?")){
@@ -54,6 +79,7 @@
                         form.submit();
                     }
                 }        
+
         </script>
         <!-- <link rel="icon" type="text/css"> -->
     </head>
@@ -210,16 +236,10 @@
                             <span class="menu-item">添加子版块</span>
                         </a>
                     </li>
-                    <li class="dropdown">
-                        <a class="sa-side-form" href="">
-                            <span class="menu-item">form</span>
+                    <li>
+                        <a class="sa-side-table" href="/shop">
+                            <span class="menu-item">商品信息</span>
                         </a>
-                        <ul class="list-unstyled menu-item">
-                            <li><a href="form-elements.html">Basic Form Elements</a></li>
-                            <li><a href="form-components.html">Form Components</a></li>
-                            <li><a href="form-examples.html">Form Examples</a></li>
-                            <li><a href="form-validation.html">Form Validation</a></li>
-                        </ul>
                     </li>
                     <!-- 图片轮播显示的后台页面,然后管理前台图片的轮播-->
                     <li>
@@ -228,8 +248,8 @@
                         </a>
                     </li>
                     <li>
-                        <a class="sa-side-chart" href="charts.html">
-                            <span class="menu-item">Charts</span>
+                        <a class="sa-side-chart" href="/admin/car">
+                            <span class="menu-item">购物车</span>
                         </a>
                     </li>
                     <li>

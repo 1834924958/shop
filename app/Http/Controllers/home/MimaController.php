@@ -22,15 +22,22 @@ class MimaController extends Controller
     {
         // dd($a);
         // dd($request->pass);
-        //进行判断两次的密码输入是否正确,正确的话,进行修改,否则还是跳转到本页面;
-        if($request->pass == $request->password)
+        // 如果密码没有输入,那么它还会跳转到本页面
+        if($request->pass == "")
         {
-                $xg = \DB::table('user')->where('id','=',$id)->update(['pass'=>$request->pass]);
-                //如果修改成功跳转到登录界面;
-                    return redirect("/denglu");
-        }else{
             return view('home.password.mima');
+        }else{
+                //进行判断两次的密码输入是否正确,正确的话,进行修改,否则还是跳转到本页面;
+                if($request->pass == $request->password)
+                {
+                        $xg = \DB::table('user')->where('id','=',$id)->update(['pass'=>$request->pass]);
+                        //如果修改成功跳转到登录界面;
+                            return redirect("/denglu");
+                }else{
+                    return view('home.password.mima');
+                }
         }
     } 
+
 }
 

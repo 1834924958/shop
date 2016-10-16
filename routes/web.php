@@ -25,9 +25,8 @@ Route::post("/home/login","home\IndexController@doLogin");//登录的表单;
 //用户信息
 Route::get("/xinxi","home\IndexController@xinxi");
 
-
 //用户头像的修改;
-Route::resource("/home","home\ImagesController");
+Route::resource("/homeee","home\ImagesController");
 //用户密码的修改;
 Route::resource("/mima","home\MimaController");
 // 进入前台的地址首页;
@@ -54,8 +53,24 @@ Route::get('/img/delegate',function(){
 });
 Route::resource('shuj', 'home\PlateController');
 
-//xxxx
-//hello
+//单类总商品
+Route::get("/home/list","home\IndexController@fenye");
+//单个商品
+Route::get("/home/detail","home\IndexController@shopping");
+//搜索
+Route::get("/home/sousuo","home\IndexController@sousuo");
+//购物车
+Route::get("/home/car","home\IndexController@car");
+Route::get("/home/carr","home\IndexController@carr");
+Route::get("/home/carr/delete","home\IndexController@decar");
+//订单
+Route::post("/home/buy","home\IndexController@buy");
+//购物车下订单
+Route::post("/home/carbuy","home\IndexController@carbuy");
+
+
+
+
 
 //进入后台的登录
 
@@ -66,6 +81,9 @@ Route::get('/tianjia',"Admin\UserController@create");
 Route::get('/xianshi',"Admin\UserController@index");
 //显示轮播的管理
 Route::get('/lunbo',"Admin\ImagesController@index");
+
+
+
 //显示轮播图片的添加
 Route::get("/lb","Admin\ImagesController@create");
 // Route::post("/lb","Admin\ImagesController@upload");
@@ -76,7 +94,8 @@ Route::get('/yq',"Admin\BlogrollController@index");
 Route::get('/youq',"Admin\BlogrollController@create");
 
 
-// 网站开关;
+
+// 网站开关的页面;
 Route::get("/pz","Admin\PeizController@index");
 
 //设置路由组;
@@ -95,6 +114,7 @@ Route::resource("images","Admin\ImagesController");
 Route::resource("blogroll","Admin\BlogrollController");
 //网站配置开关的管理;
 Route::resource("config","Admin\PeizController");
+
 });
 
 
@@ -117,3 +137,14 @@ Route::get('/platee',"Admin\PlateController@index");
 Route::resource("zizi","Admin\PlatesController");
 Route::get('/childPlate',"Admin\PlatesController@index");
 Route::get('/tjz',"Admin\PlatesController@navigation");
+
+
+//商品信息
+Route::get('/shop',"Admin\ShopController@index");
+Route::get('/tjshops',"Admin\ShopController@tianjia");
+Route::resource("shops","Admin\ShopController");
+
+//购物车
+Route::get('/admin/car','Admin\CarController@index');
+Route::resource("car","Admin\CarController");
+

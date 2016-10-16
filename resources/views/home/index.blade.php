@@ -1,39 +1,8 @@
 @extends("home.head")
 
 @section("content")
-<?php   
-        
-        $qwer = \DB::table('plate')->select('name')->get();
-        
-        
-?>
-<!-- <div class="g-bd">
-<div class="m-focus">
 
-<div id="js-focusSlick" class="js-slick m-focusSlick slick-initialized slick-slider">
-<div aria-live="polite" class="slick-list draggable">
-<div class="slick-track" style="opacity: 1; width: 7595px;" role="listbox">
-<div class="item f-imgCenterBanner slick-slide" data-slick-index="0" aria-hidden="true" style="width: 1519px; position: relative; left: 0px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" tabindex="-1" role="option" aria-describedby="slick-slide00">
-<a class="wrap" href="http://you.163.com/act/pub/qb7yL2zuPm.html?_stat_area=banner_1&amp;_stat_referer=index" target="_blank" title="活动 假期计划" tabindex="-1">
-<img class="js-img" src="./img/5a12151f7c6d51f5945b12311d32809c.jpg" alt="活动 假期计划">
-</a>
-</div><div class="item f-imgCenterBanner slick-slide" data-slick-index="1" aria-hidden="true" style="width: 1519px; position: relative; left: -1519px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" tabindex="0" role="option" aria-describedby="slick-slide01">
-<a class="wrap" href="http://you.163.com/item/manufacturer?tagId=1001008&amp;_stat_area=banner_2&amp;_stat_referer=index" target="_blank" title="膳魔师 制造商" tabindex="0">
-<img class="js-img" src="./img/95521fd2fac9d01914725abdeaaf8912.jpg" alt="膳魔师 制造商">
-</a>
-</div><div class="item f-imgCenterBanner slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" style="width: 1519px; position: relative; left: -3038px; top: 0px; z-index: 1000; opacity: 1; transition: opacity 500ms ease 0s;" tabindex="-1" role="option" aria-describedby="slick-slide02">
-<a class="wrap" href="http://you.163.com/topic/20160826?_stat_area=banner_3&amp;_stat_referer=index" target="_blank" title="早餐 专题" tabindex="-1">
-<img class="js-img" src="./img/fe10e40d50b76d44f53d43a0c0a80cd4.jpg" alt="早餐 专题">
-</a>
-</div><div class="item f-imgCenterBanner slick-slide" data-slick-index="3" aria-hidden="true" style="width: 1519px; position: relative; left: -4557px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" tabindex="-1" role="option" aria-describedby="slick-slide03">
-<a class="wrap" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1010002&amp;_stat_area=banner_4&amp;_stat_referer=index" target="_blank" title="内裤 类目" tabindex="-1">
-<img class="js-img" src="./img/a40a10db57cefe748ec98ed7eb3d950e.jpg" alt="内裤 类目">
-</a>
-</div><div class="item f-imgCenterBanner slick-slide" data-slick-index="4" aria-hidden="true" style="width: 1519px; position: relative; left: -6076px; top: 0px; z-index: 998; opacity: 0; transition: opacity 500ms ease 0s;" tabindex="-1" role="option" aria-describedby="slick-slide04">
-<a class="wrap" href="http://you.163.com/act/pub/vXlTE045GX.html?_stat_area=banner_5&amp;_stat_referer=index" target="_blank" title="星厨驾到 活动" tabindex="-1">
-<img class="js-img" src="./img/9243d45f18af993f497c6259a87295a8.jpg" alt="星厨驾到 活动">
-</a>
-</div></div></div> -->
+
 
 
 
@@ -45,11 +14,14 @@
     $image = \DB::table('images')->get();
 ?>
 <div class="gundong" style='width:1080px;height:400px;border:1px  ;overflow:hidden;'>
+<!--  <div id='did' style='width:99999px;'><img src=".././img/136.jpg" height='400px' width='1080px'><img src=".././img/138.jpg" height='400px' width='1080px'></div> -->
+<!-- 图片的轮播-->
         <div id='did' style='width:99999px;'>
             @foreach($image as $img)
                  <img src=".././images/tutu/{{ $img->photo }}" height='400px' width='1080px'>
             @endforeach
         </div>
+
 </div>
 
 
@@ -148,84 +120,31 @@
             <div class="bd">
                 <ul class="itemList">
                     <div id="js-newItemSlick" class="js-newItemslick m-newItemSlick">
+
+                        @foreach($xinpin as $xinpins)
                         <li class="item">
                             <div class="m-product ">
                                 <div class="hd">
-                                    <a href="http://you.163.com/item/detail?id=1027022&amp;_stat_area=mod_newItem_item_1&amp;_stat_referer=index" title="男式咖啡碳+3℃保暖内衣" target="_blank">
-                                        <img class="img j-lazyload " data-original="http://yanxuan.nosdn.127.net/c27a6b44543edf041f2eeaca1092e649.jpg?imageView&amp;quality=95&amp;thumbnail=265x265" alt="男式咖啡碳+3℃保暖内衣" src=".././img/33.jpg" style="display: inline;height:200px">
+                                    <a href="/home/detail/?id={{ $xinpins->id }}" title="{{ $xinpins->name }}" target="_blank">
+                                        <img class="img j-lazyload "  alt="{{ $xinpins->name }}" src=".././images/child/{{ $xinpins->photo }}" style="display: inline;height:200px">
                                     </a>
                                 </div>
                                 <div class="bd">
                                     <h4 class="name">
-                                        <a class="name" href="http://you.163.com/item/detail?id=1027022&amp;_stat_area=mod_newItem_item_1&amp;_stat_referer=index" title="男式咖啡碳+3℃保暖内衣" target="_blank">
-                                            男式咖啡碳+3℃保暖内衣
+                                        <a class="name" href="/home/detail/?id={{ $xinpins->id }}" title="{{ $xinpins->name }}" target="_blank">
+                                            {{ $xinpins->name }}
                                         </a>
                                     </h4>
                                     <p class="price">
-                                        <span>¥129</span>
-                                        <span class="sign"><a href="http://you.163.com/item/manufacturer?tagId=1001003">阿迪达斯制造商</a></span>
+                                        <span>¥{{ $xinpins->price }}</span>
+                                        <span class="sign"><a href="/home/detail/?id={{ $xinpins->id }}">{{ $xinpins->briefing }}</a></span>
                                     </p>
                                 </div>
                             </div>
                         </li>
-                        <li class="item">
-                            <div class="m-product ">
-                                <div class="hd">
-                                    <a href="http://you.163.com/item/detail?id=1073000&amp;_stat_area=mod_newItem_item_2&amp;_stat_referer=index" title="2色可选 男士帆船帆布鞋" target="_blank">
-                                        <img class="img j-lazyload " data-original="http://yanxuan.nosdn.127.net/41dca4aac589b7c141a3242df2e7d8e3.jpg?imageView&amp;quality=95&amp;thumbnail=265x265" alt="2色可选 男士帆船帆布鞋" src=".././img/41dca4aac589b7c141a3242df2e7d8e3.jpg" style="display: inline;">
-                                    </a>
-                                </div>
-                                <div class="bd">
-                                    <h4 class="name">
-                                        <a class="name" href="http://you.163.com/item/detail?id=1073000&amp;_stat_area=mod_newItem_item_2&amp;_stat_referer=index" title="2色可选 男士帆船帆布鞋" target="_blank">
-                                            2色可选 男士帆船帆布鞋
-                                        </a>
-                                    </h4>
-                                    <p class="price">
-                                        <span>¥199</span>
-                                        <span class="sign"><a href="http://you.163.com/item/manufacturer?tagId=1018000">Sperry制造商</a></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="m-product ">
-                                <div class="hd">
-                                    <a href="http://you.163.com/item/detail?id=1064017&amp;_stat_area=mod_newItem_item_3&amp;_stat_referer=index" title="素色便携洗漱包" target="_blank">
-                                        <img class="img j-lazyload " data-original="http://yanxuan.nosdn.127.net/1cb13132ddc4d07574f5db4530f02467.jpg?imageView&amp;quality=95&amp;thumbnail=265x265" alt="素色便携洗漱包" src=".././img/1cb13132ddc4d07574f5db4530f02467.jpg" style="display: inline;">
-                                    </a>
-                                </div>
-                                <div class="bd">
-                                    <h4 class="name">
-                                        <a class="name" href="http://you.163.com/item/detail?id=1064017&amp;_stat_area=mod_newItem_item_3&amp;_stat_referer=index" title="素色便携洗漱包" target="_blank">
-                                            素色便携洗漱包
-                                        </a>
-                                    </h4>
-                                    <p class="price">
-                                        <span>¥69</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="m-product ">
-                                <div class="hd">
-                                    <a href="http://you.163.com/item/detail?id=1057001&amp;_stat_area=mod_newItem_item_4&amp;_stat_referer=index" title="儿童益智绕珠架" target="_blank">
-                                        <img class="img j-lazyload " data-original="http://yanxuan.nosdn.127.net/73efd87757d9f86ced8ac2afd22d41bf.jpg?imageView&amp;quality=95&amp;thumbnail=265x265" alt="儿童益智绕珠架" src=".././img/73efd87757d9f86ced8ac2afd22d41bf.jpg" style="display: inline;">
-                                    </a>
-                                </div>
-                                <div class="bd">
-                                    <h4 class="name">
-                                        <a class="name" href="http://you.163.com/item/detail?id=1057001&amp;_stat_area=mod_newItem_item_4&amp;_stat_referer=index" title="儿童益智绕珠架" target="_blank">
-                                            儿童益智绕珠架
-                                        </a>
-                                    </h4>
-                                    <p class="price">
-                                        <span>¥59</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>
+                        @endforeach
+
+
                     </div>
                 </ul>
             </div>
@@ -338,227 +257,60 @@
             <header class="hd">
                 <div class="left">
                     <h3 class="name">{{ $plate->name }}</h3>
-                    <small class="frontName">回家，放松身心</small>
+                    <small class="frontName">{{ $plate->pname }}</small>
                 </div>
                 <div class="right">
                     <nav class="subCateList">
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_0&amp;_stat_referer=index&amp;subCategoryId=1008002" target="_blank">
-                            <img src=".././img/aca3373f42fde0386c19629fab4b2f1d.png" alt="靠枕">
-                            靠枕
+                        <?php
+    
+
+                            $qwe = \DB::table('chilePlate')->where('pid',$plate->id)->get();
+                            
+                        ?>
+                        @foreach($qwe as $plat)
+                        <a class="item" href="/home/list/?id={{ $plate->id }}#{{ $plat->pname }}" target="_blank">
+                            <img src=".././images/child/{{ $plat->photo }}" alt="{{ $plat->name }}">
+                            {{ $plat->name }}
                         </a>
                         <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_1&amp;_stat_referer=index&amp;subCategoryId=1008001" target="_blank">
-                            <img src=".././img/5a12e5dfa966413230834812170dfe70.png" alt="毛巾">
-                            毛巾
-                        </a>
-                        <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_2&amp;_stat_referer=index&amp;subCategoryId=1010003" target="_blank">
-                            <img src=".././img/3b35bfb3985297abbee023523148605d.png" alt="地毯">
-                            地毯
-                        </a>
-                        <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_3&amp;_stat_referer=index&amp;subCategoryId=1015000" target="_blank">
-                            <img src=".././img/fa645312ce3d6e9ff90401cef200018b.png" alt="家具">
-                            家具
-                        </a>
-                        <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_4&amp;_stat_referer=index&amp;subCategoryId=1017000" target="_blank">
-                            <img src=".././img/61d315c50c2e42b9245832959af5455d.png" alt="宠物">
-                            宠物
-                        </a>
-                        <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_5&amp;_stat_referer=index&amp;subCategoryId=1008017" target="_blank">
-                            <img src=".././img/e53590c81684accc4b4e98804eeab5ab.png" alt="收纳">
-                            收纳
-                        </a>
-                        <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_6&amp;_stat_referer=index&amp;subCategoryId=1008016" target="_blank">
-                            <img src=".././img/29f52dc40e1d2eb7f9e0ae0adec4299d.png" alt="灯具">
-                            灯具
-                        </a>
-                        <b class="spilt">/</b>
-                        <a class="item" href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_right_7&amp;_stat_referer=index&amp;subCategoryId=1018000" target="_blank">
-                            <img src=".././img/c4ec079203bc7b010fd2eabff53fe45c.png" alt="夏日甜心">
-                            夏日甜心
-                        </a>
+                        @endforeach
                     </nav>
                 </div>
             </header>
             <div class="bd">
                 <ul class="itemList">
+                    <?php
+                            $shop = \DB::table("shop")->where('uid',$plate->id)->orderby('id','desc')->limit('8')->get();
+
+                    ?>
+                    @foreach($shop as $shops)
                     <li class="item">
                         <div class="m-product ">
                             <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1006046&amp;_stat_area=mod_1_item_1&amp;_stat_referer=index" title="2条 棉花糖双层提花毛巾" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/0e6bc25b5250b68634e9faced656ad39.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="2条 棉花糖双层提花毛巾" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
+                                <a href="/home/detail/?id={{ $shops->id }}" title="{{ $shops->name }}" target="_blank">
+                                    <img class="img j-lazyload"  alt="{{ $shops->name }}" src=".././images/child/{{ $shops->photo }}">
                                 </a>
                             </div>
                             <div class="bd">
                                 <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1006046&amp;_stat_area=mod_1_item_1&amp;_stat_referer=index" title="2条 棉花糖双层提花毛巾" target="_blank">
-                                        2条 棉花糖双层提花毛巾
+                                    <a class="name" href="/home/detail/?id={{ $shops->id }}" title="{{ $shops->name }}" target="_blank">
+                                        {{ $shops->name }}
                                     </a>
                                 </h4>
                                 <p class="price">
-                                    <span>¥49</span>
+                                    <span>¥{{ $shops->price }}</span>
                                 </p>
                                 <hr>
-                                <p class="desc" title="儿童及敏感肌人群首选">儿童及敏感肌人群首选</p>
+                                <p class="desc" title="{{ $shops->briefing }}">{{ $shops->briefing }}</p>
                             </div>
                         </div>
                     </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1009026&amp;_stat_area=mod_1_item_2&amp;_stat_referer=index" title="3色可选 皇室御用超柔浴巾80s" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/e8a07f9e15bdcf7b28bc7038561b3553.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="3色可选 皇室御用超柔浴巾80s" src=".././img/">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1009026&amp;_stat_area=mod_1_item_2&amp;_stat_referer=index" title="3色可选 皇室御用超柔浴巾80s" target="_blank">
-                                        3色可选 皇室御用超柔浴巾80s
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥129</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="皇室御用体验">皇室御用体验</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1030001&amp;_stat_area=mod_1_item_3&amp;_stat_referer=index" title="160*230羊毛手工地毯" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/49b883fd52a69abf52fe0b828c3a40bd.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="160*230羊毛手工地毯" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1030001&amp;_stat_area=mod_1_item_3&amp;_stat_referer=index" title="160*230羊毛手工地毯" target="_blank">
-                                        160*230羊毛手工地毯
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥969</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="印度进口，手工编织，简约百搭">印度进口，手工编织，简约百搭</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1021024&amp;_stat_area=mod_1_item_4&amp;_stat_referer=index" title="长方形竹筐收纳篓" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/5bd6f52874996f49ce784de087007c1a.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="长方形竹筐收纳篓" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1021024&amp;_stat_area=mod_1_item_4&amp;_stat_referer=index" title="长方形竹筐收纳篓" target="_blank">
-                                        长方形竹筐收纳篓
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥98</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="软骨支撑，加固底板，拆卸便利">软骨支撑，加固底板，拆卸便利</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1020002&amp;_stat_area=mod_1_item_5&amp;_stat_referer=index" title="2色可选 记忆棉O型美臀垫" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/738cdff1978c267331ebfc7bdf210896.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="2色可选 记忆棉O型美臀垫" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1020002&amp;_stat_area=mod_1_item_5&amp;_stat_referer=index" title="2色可选 记忆棉O型美臀垫" target="_blank">
-                                        2色可选 记忆棉O型美臀垫
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥79</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="O形设计 缓解痔疮隐痛">O形设计 缓解痔疮隐痛</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1039051&amp;_stat_area=mod_1_item_6&amp;_stat_referer=index" title="2色可选 多功能午睡枕" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/fb96964cf4a78e06f0085ec890532a01.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="2色可选 多功能午睡枕" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1039051&amp;_stat_area=mod_1_item_6&amp;_stat_referer=index" title="2色可选 多功能午睡枕" target="_blank">
-                                        2色可选 多功能午睡枕
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥79</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="放松自在的午后时光">放松自在的午后时光</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1015007&amp;_stat_area=mod_1_item_7&amp;_stat_referer=index" title="4色可选 典雅美式全棉刺绣抱枕" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/95f2a9b91888100c189dee4ef055ff23.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="4色可选 典雅美式全棉刺绣抱枕" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1015007&amp;_stat_area=mod_1_item_7&amp;_stat_referer=index" title="4色可选 典雅美式全棉刺绣抱枕" target="_blank">
-                                        4色可选 典雅美式全棉刺绣抱枕
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥59</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="典雅毛线绣，精致工艺">典雅毛线绣，精致工艺</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <div class="m-product ">
-                            <div class="hd">
-                                <a href="http://you.163.com/item/detail?id=1009024&amp;_stat_area=mod_1_item_8&amp;_stat_referer=index" title="4色可选 日式和风懒人沙发" target="_blank">
-                                    <img class="img j-lazyload" data-original="http://yanxuan.nosdn.127.net/a27ba4f372d68fd3ea46a2a026ca2123.png?imageView&amp;quality=95&amp;thumbnail=250x250" alt="4色可选 日式和风懒人沙发" src=".././img/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC">
-                                </a>
-                            </div>
-                            <div class="bd">
-                                <h4 class="name">
-                                    <a class="name" href="http://you.163.com/item/detail?id=1009024&amp;_stat_area=mod_1_item_8&amp;_stat_referer=index" title="4色可选 日式和风懒人沙发" target="_blank">
-                                        4色可选 日式和风懒人沙发
-                                    </a>
-                                </h4>
-                                <p class="price">
-                                    <span>¥599</span>
-                                </p>
-                                <hr>
-                                <p class="desc" title="优质莱卡纯棉，和风家居新体验">优质莱卡纯棉，和风家居新体验</p>
-                            </div>
-                        </div>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
             <footer class="ft">
-                <a class="w-ftMore " href="http://you.163.com/item/list?categoryId=1005000&amp;_stat_area=mod_1_more_1&amp;_stat_referer=index" target="_blank">
-                    <span class="text">更多居家好物</span>
+                <a class="w-ftMore " href="/home/list/?id={{ $plate->id }}" target="_blank">
+                    <span class="text">查看更多</span>
                     <i class="w-icon-normal icon-normal-ftMore icon"></i>
                 </a>
             </footer>

@@ -7,7 +7,7 @@
                 </div>                
                 <div class="popwin-bd j-w-dialog-content">                                        
                     <div class="w-title">设置头像</div> 
-                      <form role="form"  action='/home/{{ $user->id }}' method="post" enctype="multipart/form-data"> 
+                      <form role="form"  action='/homeee/{{ $user->id }}' method="post" enctype="multipart/form-data"> 
                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                          <input type='hidden' name='_method' value='put'>
                         <input type='hidden' name='id' value="{$tux.id}"> 
