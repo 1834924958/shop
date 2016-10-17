@@ -17,17 +17,52 @@
 				 		<div class="w-col-2 ">                                    
 				 			<span class="w-label">收货人：</span>                                    
 				 			<div class="w-error-warp j-error-wrap">                                    
-				 				<input class="w-ipt" name="uname" value="{{ $address->uname }}" tabindex="1" type="text" placeholder="请在此输入要修改收货人名">
-				 			</div>                                
-				 		</div>                                
+				 				<input class="w-ipt" id="address" name="uname" value="{{ $address->uname }}" tabindex="1" type="text" placeholder="请在此输入要修改收货人名">
+				 			</div> 
+				 			<span id='unameinfo' style="fonct-size:10px;"></span>                               
+				 		</div> 
+
+				 			<script type="text/javascript">
+					 			var info = document.getElementById('unameinfo');
+					 			$('#address').focus(function(){
+					 				info.innerHTML = '';
+					 			}).blur(function(){
+					 				var info = document.getElementById('unameinfo');
+					 				var address = $('#address').val();
+					 				if(address.match(/^\w{4,16}$/) == null)
+					 				{
+					 					info.innerHTML = '用户别名的信息必须为4~16为的有效字符';
+					 					info.style.color = 'red';
+					 				}else{
+					 					info.innerHTML = '用户别名可用';
+					 						info.style.color = 'green';
+					 				}
+					 			})
+				 			</script>
 				 		<div class="w-col-2" style="width:275px;">                                    
 				 			<span class="w-label">手机号码：</span>                                    
 				 			<div class="w-error-warp j-error-wrap">                                    
-				 				<input class="w-ipt j-mobileFilter" name="tel" value="{{ $address->tel }}" required="required" tabindex="2" type="text" placeholder="请在此输入要修改手机号码">
-				 			</div>                                
+				 				<input class="w-ipt j-mobileFilter" id="tel" name="tel" value="{{ $address->tel }}" required="required" tabindex="2" type="text" placeholder="请在此输入要修改手机号码">
+				 			</div>
+				 			<span id="unameinf" style="font-size:12px;"></span>                                                            
 				 		</div>
 				 		<div style="clear:both"></div>                            
-				 	</div>                            
+				 	</div>
+				 	 	<script type="text/javascript">
+						 	var info = document.getElementById("unameinf");
+						 	$('#tel').focus(function(){
+						 		info.innerHTML = "";		
+							 }).blur(function(){
+							 	var user = $('#tel').val();
+							 	if(user.match(/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/) == null){
+							 		info.innerHTML = '手机号码格式不正确';
+							 		info.style.color = 'red';
+							 	}else{
+							 		info.innerHTML = '手机号码格式正确';
+							 		info.style.color = "green";
+							 	}
+							})
+					 </script>                           
 				 	<div class="w-row-addr">                                
 				 		<div class="w-col-4">                                    
 				 			<span class="w-label">所在地区：</span>                                    

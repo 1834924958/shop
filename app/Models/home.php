@@ -20,6 +20,9 @@ class  home extends Model
     		//1 接收表单的值 
     		$name = $request->input('name');
             $pass = $request->input('pass');
+            // dd($pass);
+            $pass = md5($request->input('pass'));
+            // dd($pass);
 
             //2 用户名是否存在
             $db = \DB::table('user')->where("name",$name)->first();

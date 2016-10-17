@@ -18,7 +18,12 @@ class PlateController extends Controller
                 $db->where('name','like',"%{$name}%");
                 $where['name'] = $name;
             }
-            $list=$db->paginate(6);
+            if($request->has('pname')){
+                $pname = $request->input('pname');
+                $db->where('pname','like',"%{$pname}%");
+                $where['pname'] = $pname;
+            }
+            $list=$db->paginate(4);
             return view("admin.plate.index")->with(["list"=>$list,"where"=>$where]);
     }
     //删除
@@ -36,6 +41,9 @@ class PlateController extends Controller
     public function store(Request $request){
         $file = $request->file('photo');
         // dd($file);
+        if($file == null){
+            return view('admin.plate.plate');
+        }
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
         if($file->isValid()){
@@ -59,7 +67,11 @@ class PlateController extends Controller
     //执行修改
     public function update($id,Request $request){
         $file = $request->file('photo');
-          //dd($file);
+          // dd($file);
+        if($file == null){
+              $plate = \DB::table('plate')->where('id','=',$id)->first();
+                return view('admin.plate.edit',['plate'=>$plate]);
+        }
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
         if(!empty($file)){

@@ -45,7 +45,6 @@ class IndexController extends Controller
         //2 写入到session 
         if($db){
 
-
             session(['homeuser'=>$db]);
            
             return redirect("/qian");

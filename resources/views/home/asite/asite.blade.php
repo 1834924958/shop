@@ -19,7 +19,7 @@
 ?>
 <div class="w-avatar">
     @foreach($tu as $tp)
-            <img src=".././images/user/{{ $tp->photo }}"  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:100px;" >
+            <img src=".././images/user/{{ $tp->photo }}"  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:100px;" alt="{{ $tp->name }}" >
      @endforeach
 
 <div class="modifyAvatar w-icon-normal icon-normal-camera"></div>
@@ -32,7 +32,7 @@
         $user=\DB::table('user')->where('id',session('homeuser')->id )->get();
     ?>
     @foreach($user as $tux)
-        <a class="w-button switch" href="/homeee/{{ $tux->id }}/edit">修改头像</a>
+        <a class="w-button switch" href="/homeee/{{ $tux->id }}/edit" title="{{ $tux->name }}">修改头像</a>
        <!--  <input type="submit" style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">
         <label style="position: absolute; background:#B4A078;display:inline-block;color:#333333;width: 100px;height: 45px;line-height: 45px;text-align: center;top: 10px;left: 40px;">修改头像</label>
        
@@ -49,11 +49,11 @@ membershipOn = true;
     $mima = \DB::table('user')->where('id',session('homeuser')->id)->get();
 ?>
 @foreach($mima as $mm)
-    <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active">修改密码</a>
+    <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active" title="{{ $mm->name }}">修改密码</a>
 @endforeach
 <a href="http://you.163.com/order/myList" class="w-menu-item ">订单管理</a>
 <!-- <a href="/address" class="w-menu-item ">地址管理</a> -->
-<a href="/site" class="w-menu-item active">地址管理</a>
+<a href="/site" class="w-menu-item active" >地址管理</a>
 <a href="http://you.163.com/coupon" class="w-menu-item ">优惠券</a>
 <a href="http://you.163.com/user/giftCard" class="w-menu-item ">礼品卡</a>
 <a href="http://you.163.com/user/securityCenter" class="w-menu-item ">帐号安全</a>

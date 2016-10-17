@@ -23,11 +23,6 @@
         </div>
 
 </div>
-
-
-
-
-
 <!-- <div class="slick-dots-wrap" style="display: block;" role="toolbar"><ul class="slick-dots"><li class="" aria-hidden="true" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00"><span class="before"></span><a class="wrap" target="_blank" href="http://you.163.com/act/pub/qb7yL2zuPm.html?_stat_area=banner_1&amp;_stat_referer=index"><img src="./img/5a12151f7c6d51f5945b12311d32809c.jpg"></a></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01" class=""><span class="before"></span><a class="wrap" target="_blank" href="http://you.163.com/item/manufacturer?tagId=1001008&amp;_stat_area=banner_2&amp;_stat_referer=index"><img src="./img/95521fd2fac9d01914725abdeaaf8912.jpg"></a></li><li aria-hidden="false" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02" class="slick-active"><span class="before"></span><a class="wrap" target="_blank" href="http://you.163.com/topic/20160826?_stat_area=banner_3&amp;_stat_referer=index"><img src="./img/fe10e40d50b76d44f53d43a0c0a80cd4.jpg"></a></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation03" id="slick-slide03" class=""><span class="before"></span><a class="wrap" target="_blank" href="http://you.163.com/item/list?categoryId=1010000&amp;subCategoryId=1010002&amp;_stat_area=banner_4&amp;_stat_referer=index"><img src="./img/a40a10db57cefe748ec98ed7eb3d950e.jpg"></a></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation04" id="slick-slide04" class=""><span class="before"></span><a class="wrap" target="_blank" href="http://you.163.com/act/pub/vXlTE045GX.html?_stat_area=banner_5&amp;_stat_referer=index"><img src="./img/9243d45f18af993f497c6259a87295a8.jpg"></a></li></ul></div></div>
 </div> -->
 

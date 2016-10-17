@@ -23,7 +23,12 @@ class  User extends Model
     	//1 验证用户名密码是否正确 
     		//1 接收表单的值 
     		$name = $request->input('name');
-            $pass = $request->input('pass');
+            // 没有加密的密码
+            // $pass = $request->input('pass');
+            // 进行密码的加密
+            $pass = md5($request->input('pass'));
+            // dd($pass);
+
 
             //2 用户名是否存在
             $db = \DB::table('user')->where("name",$name)->first();

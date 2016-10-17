@@ -21,6 +21,11 @@ class CarController extends Controller
 			$list=$db->paginate(6);
 			return view("admin.car.index")->with(["list"=>$list,"where"=>$where]);
 	}
+	public function gw(Request $request){
+		// var_dump(session('adminuser'));exit;
+		$gwc = \DB::table('car')->where('cid',session('adminuser')->id)->paginate(3);
+		return view("admin.car.gow",['gwc'=>$gwc]);
+	}
 	//删除
 	public function destroy($id = null){
 		$db=\DB::table('car')->where('id','=',$id)->delete();

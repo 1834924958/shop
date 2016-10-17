@@ -1,7 +1,7 @@
 @extends("home.head")
 @section("content")
 <div style="top: 0px; display: block;" class="m-pop f-scroll-y overlay-container-ani f-tlbr j-overlay-container m-pop-avatar f-ani-bouncein">            
-            <div style="left: 381.5px; top: 290px;" class="j-w-dialog-body">                
+            <div style="left: 381.5px; top: 240px;" class="j-w-dialog-body">                
                 <div class="j-w-dialog-head">                    
                      <div class="w-close j-close-pop"></div>                
                 </div>                
@@ -22,10 +22,7 @@
                     </div> 
                        <div class="j-imageBoxWarp"></div>
                        <button type="submit" class="w-button w-button-primary w-button-l pos-l j-ok bottom50">确认修改</button>
-                        <button type="reset" class="w-button w-button-l pos-r j-cancel bottom50">取消修改</button>
-                     <!--  <a class="w-button w-button-primary w-button-l pos-l j-ok bottom50">
-                        保存</a>                      
-                       <a class="w-button w-button-l pos-r j-cancel bottom50">取消</a> -->                      
+                        <button type="reset" class="w-button w-button-l pos-r j-cancel bottom50">取消修改</button>               
                     <div class="tips j-tips"></div>
                   </form>
                </div>

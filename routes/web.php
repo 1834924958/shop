@@ -146,5 +146,6 @@ Route::resource("shops","Admin\ShopController");
 
 //购物车
 Route::get('/admin/car','Admin\CarController@index');
+Route::get('/admin/car/{cid}','Admin\CarController@gw');
 Route::resource("car","Admin\CarController");
 

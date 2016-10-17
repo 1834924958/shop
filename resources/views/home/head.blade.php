@@ -8,7 +8,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>{{  $wlkg->title}}</title>
         <meta name="{{ $wlkg->keywords }}" content="网易严选,严选,网易优选,网易甄选,网易优品,网易精选,甄选家,严选态度">
-        <meta name="description" content="网易严选秉承网易一贯的严谨态度，深入世界各地，严格把关所有商品的产地、工艺、原材料，甄选居家、厨房、饮食等各类商品，力求给你最优质的商品。">@endforeach
+        <meta name="description" content="网易严选秉承网易一贯的严谨态度，深入世界各地，严格把关所有商品的产地、工艺、原材料，甄选居家、厨房、饮食等各类商品，力求给你最优质的商品。">
+@endforeach
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta http-equiv="Cache-Control" content="no-transform">
         <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -113,7 +114,7 @@
                         <!-- <a class="tab-logo" href="http://you.163.com/" title="网易严选"></a> -->
                           <!-- 网络的LOCO -->
                                     @foreach($tup as $tupian)
-                                        <img  class="tab-logo" src=".././images/config/{{ $tupian->photo }}" style="width:100px;height:100px;border-radius:50%;">
+                                        <img  class="tab-logo" src=".././images/config/{{ $tupian->photo }}" style="width:100px;height:100px;border-radius:50%;" alt="{{ $tupian->photo }}">
                                     @endforeach
                         <div class="tab-inner">
                             <div class="m-search">
@@ -150,7 +151,7 @@
                                     <a class="topLevel" title="首页" href="/qian">首页</a>
                                 </li>
                                 <?php
-                                $qwer = \DB::table('plate')->select('id', 'name')->get();
+                                    $qwer = \DB::table('plate')->select('id', 'name')->get();
                                 ?>
 
                                 @foreach ($qwer as $plate)
@@ -174,7 +175,6 @@
                                                         <p class="text">{{ $plat->name }}</p>
                                                     </a>
                                                 </li>
-
                                             </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             @endforeach
                                         </div>

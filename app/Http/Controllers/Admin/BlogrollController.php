@@ -31,6 +31,11 @@ class BlogrollController extends Controller
             $where['name'] = $name;//然后为视图准备参数
 
         }
+        if($request->has('address')){
+            $address = $request->input('address');
+            $db->where('address','like',"%{$address}%");
+            $where['address'] = $address;
+        }
 
         $list = $db->paginate(3);
         //模板;

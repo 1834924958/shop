@@ -20,7 +20,9 @@ class ImagesController extends Controller
     	$user = \DB::table('user')->where('id','=',$id)->first();
 	        $file = $request->file('photo');
          		// dd($file);
+	        //如果头像没有选择;提交之后那么它还会跳转到本页面;
 	        if($file == null){
+    			$user = \DB::table('user')->where('id','=',$id)->first();
 	        	return view('home.images.edit',['user'=>$user]);
 	        }else{
 	        if($file->isValid()){

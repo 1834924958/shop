@@ -9,12 +9,29 @@
                     <form class="row form-columned" role="form" method='post' action='/admin/user' enctype="multipart/form-data">
                      <input type='hidden' name='_token' value="{{ csrf_token() }}">
                         <div class="col-md-4">
-                            <input name='name' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入用户名">
-                        </div>                      
+                            <input name='name'  type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入用户名">
+                        </div>                 
                         <div class="clearfix"></div>
-                        <div class="col-md-4">
-                            <input  type="password" name="pass" class="form-control input-sm m-b-10" placeholder="你好,请在此输入密码">
-                        </div>  
+                        <div class="col-md-4" >
+                            <input  type="password" id="pass" name="pass" class="form-control input-sm m-b-10" placeholder="你好,请在此输入密码">
+                        </div>
+                         <span id="unameinf" style="font-size:12px;"></span>
+                        <script type="text/javascript">
+                            var info = document.getElementById("unameinf");
+                            $('#pass').focus(function(){
+                                info.innerHTML = "";        
+                             }).blur(function(){
+                                var user = $('#pass').val();
+                                if(user.match(/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,20}$/) == null){
+                                    info.innerHTML = '密码格式必须在6~20位包含字母,数字或下划线';
+                                    info.style.color = 'red';
+                                }else{
+                                    info.innerHTML = '密码格式正确';
+                                    info.style.color = "green";
+                                }
+                            })
+                     </script>
+
                         <div class="clearfix"></div>
                         <div class="col-md-4">
                             <input  type="password" name="password" class="form-control input-sm m-b-10" placeholder="你好,请再次输入密码">

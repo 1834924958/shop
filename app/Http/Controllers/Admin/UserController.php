@@ -25,14 +25,31 @@ class UserController extends Controller
         //1.进行查询获取一个连接对象,
         $db = \DB::table('user');
         //2.进行搜索的条件;
-     $where = [];   
+     $where = []; 
+       // 用户名的搜索
         if($request->has('name')){
             $name = $request->input('name');
             $db->where('name', 'like', "%{$name}%");//实现过滤 控制器
             $where['name'] = $name;//然后为视图准备参数
-
         }
-
+        // 用户别名的搜索
+        if($request->has('uname')){
+            $uname = $request->input('uname');
+            $db->where('uname','like',"%{$uname}%");
+            $where['uname'] = $uname;
+        }
+        // email邮箱的搜索
+        if($request->has('email')){
+            $email = $request->input('email');
+            $db->where('email','like',"%{$email}%");
+            $where['email']=$email;
+        }
+        // 电话的搜索
+           if($request->has('tel')){
+            $tel = $request->input('tel');
+            $db->where('tel','like',"%{$tel}%");
+            $where['tel'] = $tel;
+           }
         $list = $db->paginate(3);
         //模板;
         return view("admin.user.index")->with(["list"=>$list,"where"=>$where]);
@@ -74,11 +91,19 @@ class UserController extends Controller
    //进行添加数据;
    public function store(Request $request){
         //接收到add.blade.php中的form表中中的值;
-     // $b = $request->all();
     // dd($request->name);
      // dd($b);
+        $this->validate($request,[
+                'name' => 'required|max:16',
+                'email' => 'required|email',
+                'pass' => 'required|max:20|min:6',
+                'tel' =>   'required|min:11',
+            ]);
         //2 获得上传文件的对象 返回一个UploadedFile对象 
             $file = $request->file('photo');
+            // dd($request->pass);
+            $mima = md5($request->pass);
+            // dd($mima);
             // dd($file);
             if($file == null){
                     return view('admin.user.add');
@@ -90,7 +115,7 @@ class UserController extends Controller
                         $file->move("./images/user/",$filename);
                             if($request->pass == $request->password)
                             {
-                                $t = \DB::table('user')->insertGetId([ 'name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
+                                $t = \DB::table('user')->insertGetId([ 'name'=>$request->name,'pass'=>$mima,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
                                         return redirect("/admin/user");
                             }else{
 
@@ -109,6 +134,13 @@ class UserController extends Controller
       public function update($id,Request $request){
         // $a = $request->all();
         // dd($request->id);
+               $this->validate($request,[
+                'name' => 'required|max:16',
+                'email' => 'required|email',
+                'pass' => 'required|max:20|min:6',
+                'tel' =>'required|min:11',
+            ]);
+            $mima = md5($request->pass);
           //2 获得上传文件的对象 返回一个UploadedFile对象 
             $file = $request->file('photo');
             // dd($file);
@@ -124,7 +156,7 @@ class UserController extends Controller
                     $file->move("./images/user/",$filename);
                     if($request->pass == $request->password)
                     {
-                        $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$request->name,'pass'=>$request->pass,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
+                        $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$request->name,'pass'=>$mima,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth,'photo'=>$filename]);
                         //如果修改成功跳转到主界面;
                             return redirect("/admin/user");
                     }else{

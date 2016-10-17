@@ -19,7 +19,7 @@
 ?>
 <div class="w-avatar">
     @foreach($tu as $tp)
-            <img src=".././images/user/{{ $tp->photo }}"  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:100px;" >
+            <img src=".././images/user/{{ $tp->photo }}"  id="j-sideAvatar"  style="background-image:url('.././images/user/2.jpg'); width:100px; height:100px;" alt="{{ $tp->name }}">
      @endforeach
 
 <div class="modifyAvatar w-icon-normal icon-normal-camera"></div>
@@ -32,7 +32,7 @@
         $user=\DB::table('user')->where('id',session('homeuser')->id )->get();
     ?>
     @foreach($user as $tux)
-        <a class="w-button switch" href="/homeee/{{ $tux->id }}/edit">修改头像</a>
+        <a class="w-button switch" href="/homeee/{{ $tux->id }}/edit" title="{{ $tux->name }}">修改头像</a>
        <!--  <input type="submit" style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">
         <label style="position: absolute; background:#B4A078;display:inline-block;color:#333333;width: 100px;height: 45px;line-height: 45px;text-align: center;top: 10px;left: 40px;">修改头像</label>
        
@@ -49,7 +49,7 @@ membershipOn = true;
     $mima = \DB::table('user')->where('id',session('homeuser')->id)->get();
 ?>
 @foreach($mima as $mm)
-    <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active">修改密码</a>
+    <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active"  title="{{ $mm->name }}">修改密码</a>
 @endforeach
 <a href="http://you.163.com/order/myList" class="w-menu-item ">订单管理</a>
 <!-- <a href="/address" class="w-menu-item ">地址管理</a> -->
@@ -76,11 +76,31 @@ membershipOn = true;
                   <input name="id"  type="hidden" value="{ $mm.id }">
                     <div class="w-row-addr" style="margin-top:40px;margin-left:60px;">                                
                         <div class="w-col-2 ">                                    
-                          <span class="w-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</span>                                    
+                          <span class="w-label">新&nbsp;&nbsp;密&nbsp;&nbsp;码：</span>                                    
                             <div class="w-error-warp j-error-wrap">                                    
-                                <input class="w-ipt"  value="" tabindex="1" type="password" name="pass" placeholder="请在此输入新密码">
-                            </div>                                
+                                <input class="w-ipt"  id="pass" value="" tabindex="1" type="password" name="pass" placeholder="请在此输入新密码">
+                            </div>
+                            <span id="unameinf" style="font-size:12px;"></span>                            
                         </div> 
+
+                        <script type="text/javascript">
+                            var info = document.getElementById("unameinf");
+                            $('#pass').focus(function(){
+                                info.innerHTML = "";        
+                             }).blur(function(){
+                                var user = $('#pass').val();
+                                if(user.match(/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,20}$/) == null){
+                                    info.innerHTML = '密码格式必须在6~20位包含字母,数字或下划线';
+                                    info.style.color = 'red';
+                                }else{
+                                    info.innerHTML = '密码格式正确';
+                                    info.style.color = "green";
+                                }
+                            })
+                     </script>
+
+
+
                         <br/><br/><br/><br/><br/>                                                             
                         <div class="w-col-2" style="width:275px;">                                    
                             <span class="w-label">确认密码：</span>                                    

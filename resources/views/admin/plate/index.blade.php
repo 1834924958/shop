@@ -22,6 +22,7 @@
                   <form class="form-inline" action="{{ URL('/plate') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token()}}">
                         主版块名:<input type="text" name="name" size="6" class="form-control">
+                        主版块的简介:<input type="text" name="pname" size="6" class="form-control">
                         <input type="submit" value="确认搜索" class="btn btn-primary">
                     </form>
             </center>

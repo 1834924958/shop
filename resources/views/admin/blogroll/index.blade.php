@@ -17,6 +17,7 @@
                   <form class="form-inline" action="{{ URL('/admin/blogroll') }}">
                         <input type="hidden" name="_token" value="{{ csrf_token()}}">
                         友情链接名:<input type="text" name="name" size="6" class="form-control">
+                          友情链接地址:<input type="text" name="address" size="6" class="form-control">
                         <input type="submit" value="确认搜索" class="btn btn-primary">
                     </form>
             </center>

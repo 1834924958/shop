@@ -60,7 +60,8 @@
         <div class="u-input firstelem">
             <label for="inpt-account" class="u-label">帐号：</label>
             <input name="name" id="user" placeholder="网易邮箱/手机号/其他邮箱" class="i-inpt" type="text"><div class="auto-1474905513150 m-sug" id="auto-id-1474905513152" style="visibility: hidden;"></div>
-            <br/><br/><span id='unameinfo' style="font-size:15px"></span>
+            <br/><br/>
+			<span id='unameinfo' style="font-size:15px"></span>
             <!-- <input type='text' name='name' color='green'> -->
   <script>
             var info = document.getElementById('unameinfo');
