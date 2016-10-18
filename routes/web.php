@@ -68,10 +68,6 @@ Route::post("/home/buy","home\IndexController@buy");
 //购物车下订单
 Route::post("/home/carbuy","home\IndexController@carbuy");
 
-
-
-
-
 //进入后台的登录
 
 Route::get('/admin/login',"Admin\LoginController@index");
@@ -146,6 +142,5 @@ Route::resource("shops","Admin\ShopController");
 
 //购物车
 Route::get('/admin/car','Admin\CarController@index');
-Route::get('/admin/car/{cid}','Admin\CarController@gw');
 Route::resource("car","Admin\CarController");
 

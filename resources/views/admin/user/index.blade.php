@@ -55,7 +55,7 @@
                                 @if($user->auth ==0)
                                     普通用户
                                 @else
-                                    会员用户
+                                    管理员
                                 @endif
                             </td>
                             <td>
@@ -81,9 +81,7 @@
                             <td>{{ $user->tel }}</td>
                             <td>{{ $user->address }}</td>
 
-                            <td>    
-
-                                 <a class="btn btn-sm btn-alt m-r-5" href="/admin/car/{{ $user->id }}">购物车</a>
+                            <td>
                                 <a class="btn btn-sm btn-alt m-r-5" href="javascript:doDel({{  $user->id }}) ">删除</a>
                                 <a class="btn btn-sm btn-alt m-r-5" href="/admin/user/{{ $user->id }}/edit">修改</a>
                             </td>

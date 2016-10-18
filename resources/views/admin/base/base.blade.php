@@ -134,7 +134,9 @@
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
                             <!-- 用户的头像 -->
-                            <img class="profile-pic animated" src=".././images/user/{{ session('adminuser')->photo }}" width="100px" height="100px" alt="">
+                        <!--     <img class="profile-pic animated" src=".././images/user/{{ session('adminuser')->photo }}" width="100px" height="100px" alt="{{ session('adminuser')->name }}"> -->
+                       	  <img class="profile-pic animated" src="{{ asset('admin/img/profile-pic.jpg')}}" alt="">
+                            <!-- {{ asset(session('adminuser')->photo) }} -->
                         </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>

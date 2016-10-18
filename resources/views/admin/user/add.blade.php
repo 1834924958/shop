@@ -51,7 +51,7 @@
                          <div class="clearfix"></div>
                         <div class="col-md-4 m-b-10">
                             <select class="select" name='auth'>
-                                <option value='1'>会员用户</option>
+                                <option value='1'>管理员</option>
                                 <option value='0'>普通用户</option>
                             </select>
                         </div>

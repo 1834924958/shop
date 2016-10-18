@@ -123,7 +123,6 @@ class UserController extends Controller
                                 // return view('admin.user.add');
                             }
                     }
-        
     }
     // 进行修改的操作;
     public function edit($id){
