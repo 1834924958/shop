@@ -1,6 +1,6 @@
 @extends("admin.base.base")
 @section('content')
-	<!-- Content -->
+    <!-- Content -->
         <section id="content" class="container">
             <!-- Multi Column -->
                 <div class="block-area" id="multi-column">

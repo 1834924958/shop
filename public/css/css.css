@@ -1,0 +1,333 @@
+a {
+	color: rgb(90, 90, 90); font-family: "Î¢ÈíÑÅºÚ"; font-size: 12px; text-decoration: none;
+}
+.top {
+	background: rgb(241, 241, 241); margin: auto; width: 100%; height: 30px;
+}
+.top_text {
+	margin: auto; width: 1210px; height: 30px;
+}
+.top_text a {
+	margin: 0px 5px; line-height: 30px; float: right;
+}
+.top_img {
+	background: rgb(247, 45, 119); margin: auto; width: 100%; height: auto; text-align: center; overflow: hidden;
+}
+.search {
+	margin: auto; width: 1210px; height: 87px;
+}
+.search .logo {
+	float: left;
+}
+.search .search_on {
+	width: 638px; height: 60px; padding-left: 95px; margin-top: 25px; float: left;
+}
+.search .search_on .se {
+	width: 100%; float: left;
+}
+.search .search_on .se .lf {
+	border: 2px solid rgb(182, 29, 29); border-image: none; width: 454px; height: 32px; float: left;
+}
+.search .search_on .se .clik {
+	background: rgb(182, 29, 29); border: currentColor; border-image: none; width: 77px; height: 32px; color: rgb(255, 255, 255); float: left;
+}
+.search .search_on .se a {
+	padding: 5px; font-size: 10px; float: left;
+}
+.search .card {
+	background: url("../images/card.jpg") no-repeat 18px rgb(249, 249, 249); border: 2px solid rgb(223, 223, 223); border-image: none; width: 139px; height: 34px; margin-top: 25px; float: right;
+}
+.search .card a {
+	background: url("../images/icon.jpg") no-repeat 118px; padding: 0px 45px; color: rgb(148, 148, 148); line-height: 38px; text-decoration: none; position: relative;
+}
+.search .card a .num {
+	background: rgb(200, 22, 35); border-radius: 50%; left: 85px; top: -31px; width: 30px; height: 30px; text-align: center; color: rgb(255, 255, 255); line-height: 30px; position: absolute;
+}
+.menu {
+	margin: 14px auto 0px; width: 100%; height: auto;
+}
+.menu .nav {
+	width: 100%; height: 44px; border-bottom-color: rgb(177, 25, 26); border-bottom-width: 2px; border-bottom-style: solid;
+}
+.menu .nav .navs {
+	margin: auto; width: 1210px;
+}
+.menu .nav .navs .left_nav {
+	background: rgb(177, 25, 26); width: 200px; height: 44px; color: rgb(255, 255, 255); line-height: 44px; padding-left: 10px; font-size: 18px; float: left; position: relative;
+}
+.menu .nav .navs .left_nav .nav_mini {
+	background: rgb(200, 22, 35); left: 0px; top: 44px; width: 100%; height: auto; position: absolute;
+}
+.menu .nav .navs .left_nav .nav_mini ul {
+	width: 100%;
+}
+.menu .nav .navs .left_nav .nav_mini ul li {
+	background: url("../images/icon_1.jpg") no-repeat 191px; width: 189px; line-height: 24px; position: relative;
+}
+.menu .nav .navs .left_nav .nav_mini ul li .two_nav {
+	background: rgb(247, 247, 247); border: 1px solid rgb(200, 22, 35); border-image: none; left: 209px; top: 0px; width: 400px; height: auto; overflow: hidden; display: none; position: absolute;
+}
+.menu .nav .navs .left_nav .nav_mini ul li .two_nav a {
+	padding: 0px 5px; color: rgb(0, 0, 0);
+}
+.menu .nav .navs .left_nav .nav_mini ul li a {
+	color: rgb(255, 255, 255); font-size: 12px;
+}
+.menu .nav .navs ul {
+	float: left;
+}
+.menu .nav .navs ul li {
+	list-style: none; padding: 0px 10px; line-height: 44px; float: left;
+}
+.banner {
+	margin: auto; width: 1210px; height: 390px;
+}
+.banner .ban {
+	width: 980px; height: 380px; margin-top: 10px; float: right;
+}
+.f1box {
+	margin: 20px auto 0px; width: 1210px; height: auto; overflow: hidden;
+}
+.f1box .title {
+	width: 1210px; height: 35px; border-bottom-color: rgb(200, 22, 35); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.f1box .title .lf {
+	background: url("../images/f.jpg") no-repeat 0px; width: 150px; line-height: 35px; padding-left: 39px; float: left; position: relative;
+}
+.f1box .title .lf .abs {
+	left: -4px; top: 0px; width: 30px; text-align: center; color: rgb(255, 255, 255); line-height: 35px; font-size: 14px; position: absolute;
+}
+.f1box .title .rg {
+	line-height: 35px; float: right;
+}
+.f1box .title .rg ul li {
+	list-style: none; padding: 0px 5px; float: left;
+}
+.f1box .title .rg ul li:hover {
+	border-top-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-left-color: rgb(255, 0, 0); border-top-width: 2px; border-right-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-left-style: solid;
+}
+.f1box .box {
+	width: 1210px; overflow: hidden; float: left;
+}
+.f1box .box .only {
+	float: left;
+}
+.f1box .box .rg {
+	width: 880px; float: left;
+}
+.f1box .box .rg a img {
+	border-width: 0px 1px 1px 0px; border-style: none solid solid none; border-color: currentColor rgb(232, 229, 229) rgb(232, 229, 229) currentColor; float: left;
+}
+.footer {
+	margin: 20px auto 0px; width: 100%; overflow: hidden;
+}
+.footer .top {
+	background: url("../images/buttom.jpg") no-repeat center rgb(245, 245, 245); width: 100%; height: 94px; overflow: hidden;
+}
+.footer .bottom {
+	margin: auto; width: 1210px; overflow: hidden;
+}
+.Sscreen {
+	margin: 20px auto; width: 1210px; overflow: hidden;
+}
+.Sscreen .title {
+	background: rgb(241, 241, 241); border: 1px solid rgb(221, 221, 221); border-image: none; width: 1198px; line-height: 34px; padding-left: 10px; font-size: 12px; float: left;
+}
+.Sscreen .list {
+	width: 1210px; overflow: hidden; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid; float: left;
+}
+.Sscreen .list a {
+	padding: 0px 10px; color: rgb(0, 90, 160); line-height: 32px; float: left;
+}
+.Sscreen .list span {
+	padding: 0px 10px; line-height: 32px; float: left;
+}
+.Sbox {
+	margin: auto; width: 1210px; overflow: hidden;
+}
+.Sbox .list {
+	margin: 5px; padding: 5px; border: 1px solid rgb(212, 207, 207); border-image: none; width: 220px; height: 298px; float: left; box-shadow: 1px 1px 4px -1px #ccc;
+}
+.Sbox .list:hover {
+	border: 1px solid rgb(156, 156, 156); border-image: none;
+}
+.Sbox .list .img {
+	width: 220px; height: 221px; float: left;
+}
+.Sbox .list .price {
+	width: 100%; color: rgb(228, 57, 60); font-size: 16px; float: left;
+}
+.Sbox .list .title {
+	width: 100%; color: rgb(102, 102, 102); font-size: 14px; float: left;
+}
+.Dbox {
+	background: rgb(242, 242, 242); margin: auto; width: 100%; height: auto; overflow: hidden;
+}
+.Dbox .box {
+	background: rgb(255, 255, 255); margin: auto; border: 1px solid rgb(242, 242, 242); border-image: none; width: 1210px; overflow: hidden; padding-top: 14px;
+}
+.Dbox .box .left {
+	width: 350px; margin-left: 15px; float: left;
+}
+.Dbox .box .left .timg {
+	float: left;
+}
+.Dbox .box .left .timg2 {
+	width: 350px; height: 59px; float: left;
+}
+.Dbox .box .left .timg2 .lf {
+	width: 14px; float: left;
+}
+.Dbox .box .left .timg2 .center {
+	width: 320px; float: left;
+}
+.Dbox .box .left .timg2 .center span {
+	margin: 0px 5px; border: 2px solid rgb(228, 57, 60); border-image: none; float: left;
+}
+.Dbox .box .left .timg2 .rg {
+	width: 14px; float: right;
+}
+.Dbox .box .left .goods {
+	float: left;
+}
+.Dbox .box .cent {
+	width: 589px; margin-left: 15px; float: left;
+}
+.Dbox .box .cent .title {
+	width: 100%; color: rgb(102, 102, 102); font-size: 22px; float: left;
+}
+.Dbox .box .cent .bg {
+	background: rgb(247, 247, 247); width: 100%; margin-top: 15px; float: left;
+}
+.Dbox .box .cent .bg p {
+	margin: 10px; width: 50%; font-size: 12px;
+}
+.Dbox .box .cent .bg p strong {
+	color: rgb(228, 57, 60); font-size: 16px;
+}
+.Dbox .box .cent .clear {
+	width: 100%; line-height: 24px; margin-top: 5px; float: left;
+}
+.Dbox .box .cent .clear .min_t {
+	line-height: 26px; font-size: 12px; float: left;
+}
+.Dbox .box .cent .clear .min_mx {
+	margin: 0px 5px 5px; padding: 0px 5px; border: 2px solid rgb(204, 204, 204); border-image: none; font-size: 12px; float: left;
+}
+.Dbox .box .cent .clear .num_box {
+	width: 70px; height: 36px; float: left;
+}
+.Dbox .box .cent .clear .num_box .rg {
+	width: 18px; float: left;
+}
+.Dbox .box .cent .clear .num_box .rg img {
+	float: left;
+}
+.Dbox1 .bottom {
+	margin: 20px auto; border: 1px solid rgb(202, 202, 202); border-image: none; width: 1210px; overflow: hidden;
+}
+.Dbox1 .bottom .top {
+	background: rgb(247, 247, 247); width: 1210px; height: 30px; line-height: 30px; float: left;
+}
+.Dbox1 .bottom .top span {
+	padding: 0px 5px; font-size: 12px; float: left;
+}
+.Dbox1 .bottom .top span:hover {
+	background: rgb(255, 255, 255); border-right-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-right-style: solid; border-bottom-style: solid; border-left-style: solid;
+}
+.Dbox1 .bottom .btm {
+	margin: 1%; width: 98%; line-height: 25px; float: left;
+}
+.Caddress {
+	margin: auto; width: 1210px; height: 160px; position: relative;
+}
+.Ccart {
+	background: rgb(236, 236, 236); top: -21px; width: 100px; height: 20px; text-align: center; right: 5px; line-height: 20px; position: absolute;
+}
+.Caddress .add_mi {
+	background: url("../images/mail.jpg") no-repeat; padding: 6px 17px; height: 106px; margin-right: 5px; float: left;
+}
+.Caddress .add_mi p {
+	width: 203px; color: rgb(102, 102, 102); line-height: 20px; font-size: 12px; margin-bottom: 5px;
+}
+.Cbox {
+	margin: 15px auto; width: 1210px; overflow: hidden;
+}
+.Cprice {
+	background: rgb(243, 243, 243); margin: 20px auto; width: 1210px; overflow: hidden;
+}
+.Cprice .price {
+	padding: 5px 10px; width: 121px; color: rgb(255, 255, 255); line-height: 30px; float: left; background-color: rgb(128, 128, 128);
+}
+.Cprice .jiesuan {
+	background: rgb(255, 68, 0); padding: 5px 20px; color: rgb(255, 255, 255); line-height: 30px; font-size: 22px; float: right;
+}
+.shade {
+	background: black; top: 0px; width: 100%; height: 100%; position: fixed; z-index: 100; -ms-overflow-y: hidden; opacity: 0.5;
+}
+.shade_content {
+	background: rgb(255, 255, 255); border-radius: 10px; left: 50%; top: 50%; width: 800px; height: 500px; margin-top: -250px; margin-left: -400px; position: fixed; z-index: 101;
+}
+.shade_content_div {
+	margin: 20px auto 0px; width: 80%; height: 100%; text-align: center;
+}
+.shade_title {
+	text-align: center; font-size: 30px; font-weight: bold;
+}
+.btn_remove {
+	background: rgb(49, 176, 213); outline: 0px; border-radius: 5px; border: 0px currentColor; border-image: none; width: 150px; height: 40px; color: white; font-size: 15px;
+}
+.sub_set {
+	background: rgb(49, 176, 213); outline: 0px; border-radius: 5px; border: 0px currentColor; border-image: none; width: 150px; height: 40px; color: white; font-size: 15px;
+}
+.input_style {
+	outline: 0px; border-radius: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 250px; height: 30px;
+}
+.span_style {
+	font-size: 18px;
+}
+.shade_from {
+	margin-top: 20px;
+}
+.shade_from .col-xs-12 {
+	margin-top: 20px;
+}
+.shade_colse {
+	text-align: right; margin-top: 10px;
+}
+.shade_colse button {
+	background: red; outline: 0px; border-radius: 50px; border: 0px currentColor; border-image: none; width: 30px; height: 30px; color: white; font-size: 20px; margin-right: 10px;
+}
+.open_new {
+	width: 100%; text-align: right;
+}
+.open_btn {
+	background: red; outline: 0px; border-radius: 10px; border: 0px currentColor; border-image: none; width: 120px; height: 30px; color: white; margin-bottom: 10px;
+}
+.shopping_content {
+	margin: auto; width: 1210px; position: relative;
+}
+.shopping_table {
+	width: 100%;
+}
+.btn_r {
+	background: rgb(49, 176, 213); outline: 0px; border-radius: 5px; border: 0px currentColor; border-image: none; width: 60px; height: 30px; color: white; font-size: 15px;
+}
+.momey_input {
+	outline: 0px; border-radius: 5px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 50px; height: 20px; text-align: center;
+}
+.btn_reduce {
+	background: none; outline: 0px; border-radius: 2px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 20px; height: 20px;
+}
+.btn_add {
+	background: none; outline: 0px; border-radius: 2px; border: 1px solid rgb(204, 204, 204); border-image: none; width: 20px; height: 20px;
+}
+.btn_closing {
+	background: rgb(49, 176, 213); outline: 0px; border-radius: 5px; border: 1px solid transparent; border-image: none; width: 130px; height: 40px; color: white;
+}
+.div_outMumey {
+	background: rgb(204, 204, 204); border-radius: 5px; width: 130px; height: 40px; text-align: center; color: white; line-height: 40px; font-size: 20px;
+}
+th {
+	height: 40px; font-size: 15px;
+}

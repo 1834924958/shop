@@ -51,6 +51,15 @@
                         <div class="col-md-4">
                             <input name='briefing' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入商品描述">
                         </div><br/><br/><br/>
+                           <div class="col-md-4">
+                            <input name='merchant' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入商品的制造商">
+                        </div><br/><br/><br/>
+                           <div class="col-md-4">
+                            <input name='sales' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入商品的促销价格">
+                        </div><br/><br/><br/>
+                           <div class="col-md-4">
+                            <input name='service' type="text" class="form-control input-sm m-b-10" placeholder="你好,请在此输入商品的服务地址(电话)">
+                        </div><br/><br/><br/>
                                     <div class="col-md-4" >
                                 <div style="position: relative;">
                                     <input type="file" name="photo" class="form-control input-sm m-b-10"style=" width: 100px;height:45px;position: relative;z-index: 9;opacity: 0;">

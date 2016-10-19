@@ -86,15 +86,12 @@
                         <a class="tuichu" href="{{ URL('lala/logout') }}"><span style='font-size:12px;color:#ffffff;'>退出</span></a>
                         @endif
                         <div class="split"></div>
-                        <a class="attitude" href="http://you.163.com/attitude">严选态度</a>
+                        
                         <div class="split"></div>
-                        <a class="attitude" href="http://you.163.com/enterprise">企业采购</a>
+                       
                         <div class="split"></div>
                         <div class="m-dropdown m-hdAppDownload">
-                            <a class="trigger j-downloadlink" target="_blank" href="http://you.163.com/downloadapp?_stat_from=web_out_pz_baidu_1">
-                                <i class="icon w-icon-normal icon-normal-phone-app"></i>
-                                <span class="txt">下载APP</span>
-                            </a>
+      
                             <div class="bd">
                                 <div class="wrap">
                                     <div class="QRcode j-qrcode"><canvas width="146" height="146" style="width: 117px; height: 117px;"></canvas></div>
@@ -130,7 +127,7 @@
 
                                 @endif
                                 <div class="m-searchInput" id="j-search">
-                                    <form class="form-inline" action="{{ URL('/home/sousuo') }}">
+                                    <form class="form-inline" action="/home/sousuo" method="post">
                                         <input type="hidden" name="_token" value="{{ csrf_token()}}">
                                         <div class=" w-button-search"><button class="w-icon-normal icon-normal-search"></button></div>
                                         <input id="topSearchInput" name="name" placeholder="搜索宝贝" class="w-searchInput " maxlength="100" data-defaultword="搜索宝贝" autocomplete="off" type="text">
@@ -216,8 +213,8 @@
                                 </div>
                             </div>
                             <div class="notLogin">
-                                <a class="" href="/denglu" title="网易严选登录">登录</a>&nbsp;&nbsp;
-                                <a class="" data-href="http://reg.163.com/reg/reg.jsp?product=yanxuan_web" href="/home/create">注册</a>
+                       <!--          <a class="" href="/denglu" title="网易严选登录">登录</a>&nbsp;&nbsp;
+                                <a class="" data-href="http://reg.163.com/reg/reg.jsp?product=yanxuan_web" href="/home/create">注册</a> -->
                             </div>
                         </div>
                     </div>
@@ -290,7 +287,7 @@
 <!-- 网页的版权部分 -->
 @foreach($qwe as $wen)
 <p class="copyright">
-    {{ $wen->copyright }} © 1997-<script type="text/javascript" src=".././js/year.js"></script>2016 ICP证：浙B2-20160106 &nbsp;浙ICP备15041168号
+    {{ $wen->copyright }}  1997-<script type="text/javascript" src=".././js/year.js"></script>2016 ICP证：浙B2-20160106 &nbsp;浙ICP备15041168号
 </p>
 @endforeach
 </div>

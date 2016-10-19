@@ -10,20 +10,30 @@ use App\Models\home;
 class IndexController extends Controller 
 {
 	public function index()
-	{
-		// $qwer = \DB::table('plate')->select('name')->get();
-			// return view("home.index",["qwer"=>$qwer]);
-
-		
-			// 网站的开关的判断,以及跳转页面
-			$on = \DB::table('config')->first();
+	{			$on = \DB::table('config')->first();
 			if($on->kai=='0'){
+
+
 				$qwer = \DB::table('plate')->get();
-				$xinpin = \DB::table("shop")->orderby('id','desc')->limit('4')->get();             
-			return view("home.index",['qwer'=>$qwer,'xinpin'=>$xinpin]);
+				$xinpin = \DB::table("shop")->orderby('id','desc')->limit('4')->get(); 
+				$image = \DB::table('images')->get();
+				$renqi = \DB::table("shop")->orderby('id')->limit('4')->get();
+
+				return view("home.index",['qwer'=>$qwer,'xinpin'=>$xinpin,'image'=>$image,'renqi'=>$renqi]);
+			// return view("home.index",['qwer'=>$qwer,'xinpin'=>$xinpin]);
 			}else{
 				return view('errors.baohu');
-		}
+			}
+		// $qwer = \DB::table('plate')->select('name')->get();
+
+			// return view("home.index",["qwer"=>$qwer]);
+
+		// $qwer = \DB::table('plate')->get();
+		// $xinpin = \DB::table("shop")->orderby('id','desc')->limit('4')->get();
+		// $image = \DB::table('images')->get();
+		// $renqi = \DB::table("shop")->orderby('id')->limit('4')->get();
+                    
+		// return view("home.index",['qwer'=>$qwer,'xinpin'=>$xinpin,'image'=>$image,'renqi'=>$renqi]);
 	}
 	public function xinxi()
 	{
@@ -45,10 +55,13 @@ class IndexController extends Controller
         //2 写入到session 
         if($db){
 
+
             session(['homeuser'=>$db]);
            
             return redirect("/qian");
         }else{
+        	// return redirect("/qian");
+        	return redirect("/denglu");
             // return back()->with('msg',"用户名密码错误");
         }
         //3 页面实现跳转
@@ -90,17 +103,24 @@ class IndexController extends Controller
 	// {dd($request);
 	{
 		session_start();
+		// dd($request->pass);
+		$cpass = md5($request->cpass);
+		// dd($cpass);
+		$pass = md5($request->pass);
+		// dd($pass);
 	    if($_SESSION['code'] !== $request['code']){
 			return view('home.create');
     	}
 		$name=$request['name'];
+		$tel=$request['tel'];
 		$db=\DB::table("user")->where('name',$name)->first();
-		if($db || preg_match('/^\w{4,16}$/',$name)==null){
+		if($db || preg_match('/^\w{4,16}$/',$name)==null || preg_match('/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/',$tel)==null){
 			return view('home.create');
 		}else{
 
-			if($request['pass']==$request['cpass'] && !empty($request['pass']) && !empty($request['name'])){
-				$var = \DB::table("user")->insert(['name'=>$request['name'],'pass'=>$request['pass']]);
+
+			if($cpass==$pass  && !empty($request['name']) ){
+				$var = \DB::table("user")->insert(['name'=>$request['name'],'pass'=>$pass,'tel'=>$request['tel']]);
 				if($var>0){
 					return view('home.register');
 				}else{
@@ -163,14 +183,26 @@ class IndexController extends Controller
 		
 		$id=$request->id;
 		$shopping = \DB::table('shop')->where('id',$id)->get();
-		return view("home.detail",['shopping'=>$shopping]);
+
+
+		$ping = \DB::table('type')->where('pid','=',$id)->get();
+
+
+		// $pingg = \DB::table('type')->select('id')->groupBy('id');
+		// $pingg = \DB::table('type')->where('pid','=',$id)->first();
+		// $uid=$pingg->uid;
+
+		// $pii = \DB::table('user')->where("id",$uid)->get();
+		
+		return view("home.detail",['shopping'=>$shopping,'ping'=>$ping]);
+
+
 	}
 
 	//搜索查询
 	public function sousuo(Request $request)
 	{
-		$a = $request->all();
-		$id=$a['name'];
+
 		$db=\DB::table('shop');
 		$where=[];
 			if($request->has('name')){
@@ -178,9 +210,17 @@ class IndexController extends Controller
 				$db->where('name','like',"%{$name}%");
 				$where['name'] = $name;
 			}
-			$list=$db;
+			$list=$db->paginate(6);
+
 			return view("home.search")->with(["list"=>$list,"where"=>$where]);
 	}
+
+
+
+
+
+
+
 	public function souso()
 	{
 		return view("home.search");
@@ -207,7 +247,7 @@ class IndexController extends Controller
 		$a=$request->id;
 
 		
-		$del = \DB::table('car')->where('pid',$a)->delete();
+		$del = \DB::table('car')->where('id',$a)->delete();
 		return redirect('/home/carr');
 	}
 	//立即购买
@@ -217,28 +257,120 @@ class IndexController extends Controller
 				$shopid = $k;
 				$num = $v;
 		}
+		$uid=session('homeuser')->id;
+		$dizhi=\DB::table('address')->where('uid',$uid)->get();
 		$buy = \DB::table('shop')->where('id',$shopid)->get();
-
-		return view("home.buy",['buy'=>$buy,'num'=>$num]);
+		$tell = \DB::table('user')->where('id',$uid)->first();
+		$tel = $tell->tel;
+		$moren = \DB::table('user')->where('id',session('homeuser')->id)->get();
+		return view("home.buy",['buy'=>$buy,'num'=>$num,'dizhi'=>$dizhi,'tel'=>$tel,'moren'=>$moren]);
 
 	}
 	//购物车下单
 	public function carbuy(Request $request)
 	{
+		if(empty($request->input('checkbox'))){
 
-		
-		foreach($request->only('checkbox')['checkbox'] as $kk => $vv){
-
-			$shopi = $kk;
-			
+			return view('home.car');
 		}
-				foreach($request->only('count')['count'] as $k => $v){
 
-			$shop = $v;
-			
+		$buys =[];
+
+
+		foreach ($request->input('checkbox') as $key => $value) {
+			// $a[]=$key;
+			$buys[] = \DB::table('car')->where('id',$key)->first();
 		}
-		dd($shop);
+		// dd($buys);
+		$buy = [];
+		foreach ($buys as $value) {
+			// $a[]=$key;
+			$buy[] = \DB::table('shop')->where('id',$value->pid)->first();	
+		}
+		// foreach($request->only('count')['count'] as $k => $v){
+		// 		$shopid = $k;
+		// 		$num = $v;
+		// }
+		$num = $request->input('name');
+
+		$uid=session('homeuser')->id;
+		$dizhi=\DB::table('address')->where('uid',$uid)->get();
 		
+		$tell = \DB::table('user')->where('id',$uid)->first();
+		$tel = $tell->tel;
+		$moren = \DB::table('user')->where('id',session('homeuser')->id)->get();
+		return view("home.buy",['buy'=>$buy,'num'=>$num,'dizhi'=>$dizhi,'tel'=>$tel,'moren'=>$moren]);
+		
+	}
+	//购买
+	public function goumai(Request $request)
+	{
+		$hid=session('homeuser')->id;
+		// $name=$request->input('name');
+		$name=session('homeuser')->name;
+		$bid=$request->input('bid');
+		$price=$request->input('price');
+		$num=$request->input('num');
+		$tel=$request->input('tel');
+		$total=$request->input('total');
+		$address=$request->input('address');
+
+			$goumai = \DB::table("buy")->insert(['bid'=>$bid,'hid'=>$hid,'name'=>$name,'tel'=>$tel,'price'=>$price,'num'=>$num,'total'=>$total,'address'=>$address]);
+			if($goumai){
+				return view("home.yes");
+			}else{
+				return view("home.no");
+			}
+
+	}
+	//评论
+	public function pinglun(Request $request)
+	{
+		 // $aa = $request->input('text1');
+
+		// $aa = session('homeuser')->id;
+		
+
+
+		// $address=$request->input('address');
+
+		 // $db = \DB::table("buy")->where('bid',$request->input('bid'))->get();
+		 
+		 // $bd = \DB::table("buy")->where("hid",session('homeuser')->id)->get();
+		$t = \DB::select('select bid from buy where hid=:hid', ['hid' => session('homeuser')->id]);
+		// return $t;
+	
+		// dd($t);
+        $v = '';
+        foreach ($t as $key => $value) {
+            $v.= $value->bid.'::';
+        }
+         $v=rtrim($v,'::');
+        $arr = explode('::',$v);
+
+       // $time = time();
+        date_default_timezone_set('prc');
+        $time = date('Y/m/d H:i');
+		if(in_array($request->input('bid'),$arr)){
+
+
+			$goumai = \DB::table("type")->insertGetId(['uid'=>session('homeuser')->id,'time'=>$time,'pid'=>$request->input('bid'),'meirong'=>$request->input('text1')]);
+			return 1;
+		}else{
+
+			return 2;
+		
+		}
+	}
+	public function dingd()
+	{
+		$uid = session('homeuser')->id;
+		$dingd = \DB::table("buy")->where('hid',$uid)->get();
+		
+		
+		
+		return view ('home.diz',['dingd'=>$dingd]);
+
 	}
 
 }

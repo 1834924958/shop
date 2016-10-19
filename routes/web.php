@@ -25,6 +25,7 @@ Route::post("/home/login","home\IndexController@doLogin");//登录的表单;
 //用户信息
 Route::get("/xinxi","home\IndexController@xinxi");
 
+
 //用户头像的修改;
 Route::resource("/homeee","home\ImagesController");
 //用户密码的修改;
@@ -58,15 +59,27 @@ Route::get("/home/list","home\IndexController@fenye");
 //单个商品
 Route::get("/home/detail","home\IndexController@shopping");
 //搜索
-Route::get("/home/sousuo","home\IndexController@sousuo");
+Route::post("/home/sousuo","home\IndexController@sousuo");
 //购物车
 Route::get("/home/car","home\IndexController@car");
 Route::get("/home/carr","home\IndexController@carr");
 Route::get("/home/carr/delete","home\IndexController@decar");
 //订单
 Route::post("/home/buy","home\IndexController@buy");
+
 //购物车下订单
 Route::post("/home/carbuy","home\IndexController@carbuy");
+//购买商品
+Route::post("/home/goumai","home\IndexController@goumai");
+//评论
+Route::post("/home/pinglun","home\IndexController@pinglun");
+//用户订单'
+Route::get("/dingd","home\IndexController@dingd");
+
+
+//xxxx
+//hello
+
 
 //进入后台的登录
 
@@ -91,7 +104,7 @@ Route::get('/youq',"Admin\BlogrollController@create");
 
 
 
-// 网站开关的页面;
+// 网站开关;
 Route::get("/pz","Admin\PeizController@index");
 
 //设置路由组;
@@ -105,6 +118,10 @@ Route::get("index",function(){
 // 后台用户的管理
 Route::resource("user","Admin\UserController");
 //进行加载图片轮播的效果;
+
+
+
+
 Route::resource("images","Admin\ImagesController");
 //友情链接的管理
 Route::resource("blogroll","Admin\BlogrollController");
@@ -143,4 +160,11 @@ Route::resource("shops","Admin\ShopController");
 //购物车
 Route::get('/admin/car','Admin\CarController@index');
 Route::resource("car","Admin\CarController");
+//订单管理
+Route::get('/admin/buy','Admin\BuyController@index');
+Route::resource("/admin/dingdan","Admin\BuyController");
 
+
+//回复评论
+Route::get('/admin/pinglun','Admin\BuyController@index');
+Route::resource("/admin/dingdan","Admin\BuyController");

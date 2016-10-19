@@ -2,6 +2,7 @@
 
 @extends("home.head")
 @section("content")
+
         <!-- 重构部分 开始 -->
 
         <script type="text/javascript" async="" src="{{ URL::asset('js/list-fbea58f1d3.js') }}"></script>
@@ -71,14 +72,14 @@
                                         <li class="item">
                                             <div class="m-product product-s j-product">
                                                 <div class="hd">
-                                                    <a href="http://you.163.com/item/detail?id=1025005&amp;_stat_area=mod_1_item_1&amp;_stat_referer=itemList&amp;_stat_id=1005001" title="{{ $shopse->name }}" target="_blank">
+                                                    <a href="/home/detail/?id={{ $shopse->id }}" title="{{ $shopse->name }}" target="_blank">
                                                         <img class="img j-lazyload"  alt="{{ $shopse->name }}" src=".././images/child/{{ $shopse->photo }}" style="display: inline;">
                                                         <p class="newTag">新品</p>
                                                     </a>
                                                 </div>
                                                 <div class="bd">
                                                     <h4 class="name">
-                                                        <a class="name" href="http://you.163.com/item/detail?id=1025005&amp;_stat_area=mod_1_item_1&amp;_stat_referer=itemList&amp;_stat_id=1005001" title="4色可选 铸铁珐琅圆锅22cm" target="_blank">
+                                                        <a class="name" href="/home/detail/?id={{ $shopse->id }}" title="{{ $shopse->name }}" target="_blank">
                                                             {{ $shopse->name }}
                                                         </a>
                                                     </h4>

@@ -47,7 +47,7 @@ membershipOn = true;
 @foreach($mima as $mm)
     <a href="/mima/{{ $mm->id }}/edit" class="w-menu-item active" title="{{ $mm->name }}">修改密码</a>
 @endforeach
-<a href="http://you.163.com/order/myList" class="w-menu-item ">订单管理</a>
+<a href="/dingd" class="w-menu-item ">订单管理</a>
 <!-- <a href="/address" class="w-menu-item ">地址管理</a> -->
 <a href="/site" class="w-menu-item ">地址管理</a>
 <a href="http://you.163.com/coupon" class="w-menu-item ">优惠券</a>

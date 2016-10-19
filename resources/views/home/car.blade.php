@@ -26,15 +26,17 @@
                     <div class="tt" data-reactid=".0.1.0">
                         <div class="w w1 left" data-reactid=".0.1.0.0">
                             <div class="w-chkbox" >
-                                <button onclick='doSelect(1)'>全选</button>
+<!--                                 <button onclick='doSelect(1)'>全选</button>
                                 <button onclick='doSelect(2)'>全不选</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button onclick='doSelect(3)'>反选</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button onclick='doSelect(3)'>反选</button>&nbsp;&nbsp;&nbsp;&nbsp; -->
                             </div>
                         </div>
-                        <div class="w w2 left" data-reactid=".0.1.0.1">名称</div>
+                        <div class="w w2 " data-reactid=".0.1.0.1">&nbsp;&nbsp;</div>
+                        <div class="w w2 " data-reactid=".0.1.0.1">名称</div>
+                        
                         <div class="w w3" data-reactid=".0.1.0.2">单价</div>
-                        <div class="w w4" data-reactid=".0.1.0.3">数量</div>
-                        <!-- <div class="w w5" data-reactid=".0.1.0.4">小计</div> -->
+                        <div class="w w4" data-reactid=".0.1.0.3"></div>
+                        
                         <div class="w w6" data-reactid=".0.1.0.5">操作</div>
                     </div>
 
@@ -43,10 +45,10 @@
                         $t = \DB::select(" select shop.* from car,shop where shop.id=car.pid and " . session('homeuser')->id . "= car.cid");
                         ?>
                         @foreach($t as $carss)
-                        <?php
-                            $a = \DB::table('car')->where('pid',$carss->id)->get();
-                        ?>
-                        @foreach($a as $shopp)
+                                    <?php
+                                        $del = \DB::table('car')->where('pid',$carss->id)->first();
+
+                                    ?>
                         <div class="cart-group" data-reactid=".0.1.1.$0">
                             <div class="promotion-wrap f-dn" data-reactid=".0.1.1.$0.0">
                                 <div class="promotion" data-reactid=".0.1.1.$0.0.0">
@@ -55,12 +57,14 @@
                                     <a href="http://you.163.com/cart/itemPool?promotionId=0" class="link" target="_blank" data-reactid=".0.1.1.$0.0.0.3">继续凑单&gt;&gt;</a>
                                 </div>
                             </div>
+
                             <div class="cart-item f-cb cart-item-last" data-reactid=".0.1.1.$0.2:$c1035059">
                                 <div class="item w7" >
 
                                     <div class="w-chkbox" >
-                                        <input type="checkbox" name="checkbox[{{$shopp->id}}]">
+                                        <input type="checkbox" name="checkbox[{{ $del->id }}]" value="{{ $del->id }}">
                                        <!--  <input type="checkbox" name='like[]' value='{{ $carss->id }}'> -->
+                                        
                                     </div>
 
                                 </div>
@@ -89,9 +93,9 @@
 
                                 <div class="item item-2 w4">
                                     <div class="u-selnum u-selnum-cart">                        
-                                            <input type="button" class="minus jian" value="-">
-                                            <input type="text" size="1" class="input-text qty text" title="Qty" value="1" min="0" step="1" id="jisuan" name="count[{{ $shopp->id }}]">
-                                            <input type="button" class="plus jia" value="+" id="jia">
+                                            <!-- <input type="button" class="minus jian" value="-"> -->
+                                            <input type="hidden" size="1" class="input-text qty text" title="Qty" value="1" min="0" step="1" id="jisuan" name="name">
+                                            <!-- <input type="button" class="plus jia" value="+" id="jia"> -->
                                     </div>
                                 </div>
 
@@ -107,7 +111,11 @@
                                                                 </div> -->
                                 <div class="item item-4 item-left w6 f-pr" data-reactid=".0.1.1.$0.2:$c1035059.5">
                                     <div class="activity" data-reactid=".0.1.1.$0.2:$c1035059.5.0"></div>
-                                    <a class="del" href="/home/carr/delete/?id={{ $carss->id }}">
+                                    <?php
+                                        $del = \DB::table('car')->where('pid',$carss->id)->first();
+
+                                    ?>
+                                    <a class="del" href="/home/carr/delete/?id={{ $del->id }}">
                                         <i style="font-size:20px;">×</i>
                                     </a>
                                 </div>
@@ -117,7 +125,7 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                      
                         @endforeach
                     </div>
                 </div>
@@ -145,21 +153,13 @@
 
 
                 </script>               
-                <div style="display:none;" data-reactid=".0.2">
-                    <div class="cart-empty" data-reactid=".0.2.0">
-                        <div class="warp" data-reactid=".0.2.0.0">
-                            <i class="w-icon-normal icon-normal-cart-empty" data-reactid=".0.2.0.0.0"></i>
-                            <p class="text" data-reactid=".0.2.0.0.1">购物车还是空滴</p>
-                            <a class="shop" href="http://you.163.com/" data-reactid=".0.2.0.0.2">继续购物&gt;&gt;</a>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="cart-total" data-reactid=".0.3">
                     <div class="w-chkbox" data-reactid=".0.3.0">
 
-                        <button onclick='doSelect(1)'>全选</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button onclick='doSelect(2)'>全不选</button>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button onclick='doSelect(3)'>反选</button>
+                        <button type="button" onclick='doSelect(1)'>全选</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" onclick='doSelect(2)'>全不选</button>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button type="button" onclick='doSelect(3)'>反选</button>
 <!--                         <span class="mgl30" data-reactid=".0.3.0.2">
                         <span data-reactid=".0.3.0.2.0">已选择</span>
                         <span class="num" data-reactid=".0.3.0.2.1">   </span>
@@ -194,36 +194,9 @@
 
                     </script>
                     <div class="info f-fr" data-reactid=".0.3.1">
-                        <div class="line" data-reactid=".0.3.1.0">
-                            <span class="item" data-reactid=".0.3.1.0.0">商品合计：</span>
-                            <span class="con" data-reactid=".0.3.1.0.1">
-                                <span data-reactid=".0.3.1.0.1.0">¥</span>
-                                <span data-reactid=".0.3.1.0.1.1">39.00</span>
-                            </span>
-                        </div>
-                        <div class="line" data-reactid=".0.3.1.1">
-                            <span class="item" data-reactid=".0.3.1.1.0">活动优惠：</span>
-                            <span class="con" data-reactid=".0.3.1.1.1">
-                                <span data-reactid=".0.3.1.1.1.0">¥</span>
-                                <span data-reactid=".0.3.1.1.1.1">0.00</span>
-                            </span>
-                        </div>
-                        <div class="line" data-reactid=".0.3.1.2">
-                            <div class="hl" data-reactid=".0.3.1.2.0">
-                            </div>
-                        </div>
-                        <div class="line" data-reactid=".0.3.1.3">
-                            <div class="m-tipTag tip" data-reactid=".0.3.1.3.0">
-                                <div class="inner" data-reactid=".0.3.1.3.0.0">满88免邮</div>
-                            </div>
-                            <span class="mgr" data-reactid=".0.3.1.3.1">
-                                <span data-reactid=".0.3.1.3.1.0">商品合计：</span>
-                                <span class="price" data-reactid=".0.3.1.3.1.1">
-                                    <span data-reactid=".0.3.1.3.1.1.0">¥</span>
-                                    <span data-reactid=".0.3.1.3.1.1.1">39.00</span>
-                                </span>
-                            </span>
-                        </div>
+
+
+
                         <div class="line line-1" data-reactid=".0.3.1.4">
                             <button type="submit" class="w-button w-button-xl w-button-primary" data-reactid=".0.3.1.4.0">下单</button>
                         </div>

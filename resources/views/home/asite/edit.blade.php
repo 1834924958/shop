@@ -1,5 +1,6 @@
 @extends("home.head")
 @section("content")
+<br/><br/><br/><br/><br/><br/><br/><br/>
 <div style="top: 0px; display: block;" class="m-pop f-scroll-y overlay-container-ani f-tlbr j-overlay-container m-pop-addr f-ani-bouncein"> 
 	<div style="left: 223px; top: 360.5px;" class="j-w-dialog-body">                
 		<div class="j-w-dialog-head">                    

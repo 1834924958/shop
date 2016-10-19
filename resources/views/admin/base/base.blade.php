@@ -60,7 +60,14 @@
                         form.submit();
                     }
                 }
-              
+                //订单
+                function dan(dd){
+                    if(confirm("确定要删除吗?")){
+                        var form = document.ding;
+                        form.action = '/admin/dingdan/'+dd;
+                        form.submit();
+                    }
+                }              
 
                 
                 // 轮播图片的删除
@@ -134,9 +141,8 @@
                     <div class="text-center s-widget m-b-25 dropdown" id="profile-menu">
                         <a href="" data-toggle="dropdown">
                             <!-- 用户的头像 -->
-                        <!--     <img class="profile-pic animated" src=".././images/user/{{ session('adminuser')->photo }}" width="100px" height="100px" alt="{{ session('adminuser')->name }}"> -->
-                       	  <img class="profile-pic animated" src="{{ asset('admin/img/profile-pic.jpg')}}" alt="">
-                            <!-- {{ asset(session('adminuser')->photo) }} -->
+                          <img class="profile-pic animated" src="{{ asset('admin/img/profile-pic.jpg')}}" alt="">
+                            
                         </a>
                         <ul class="dropdown-menu profile-menu">
                             <li><a href="">My Profile</a> <i class="icon left">&#61903;</i><i class="icon right">&#61815;</i></li>
@@ -255,8 +261,13 @@
                         </a>
                     </li>
                     <li>
-                        <a class="sa-side-folder" href="file-manager.html">
-                            <span class="menu-item">File Manager</span>
+                        <a class="sa-side-folder" href="/admin/buy">
+                            <span class="menu-item">订单管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="sa-side-calendar" href="/admin/pinglun">
+                            <span class="menu-item">回复评论</span>
                         </a>
                     </li>
                     <!--后台的友情链接然后在前台进行遍历 -->
@@ -266,23 +277,12 @@
                         </a>
                     </li>
                     <!-- 进入网站开关的页面 -->
-                      <li>
+                    <li>
                         <a class="sa-side-calendar" href="/pz">
                             <span class="menu-item">网站开关</span>
                         </a>
                     </li>
-                    <li class="dropdown">
-                        <a class="sa-side-page" href="">
-                            <span class="menu-item">Pages</span>
-                        </a>
-                        <ul class="list-unstyled menu-item">
-                            <li><a href="list-view.html">List View</a></li>
-                            <li><a href="profile-page.html">Profile Page</a></li>
-                            <li><a href="messages.html">Messages</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="404.html">404 Error</a></li>
-                        </ul>
-                    </li>
+
                 </ul>
 
             </aside>

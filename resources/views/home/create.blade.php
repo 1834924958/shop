@@ -60,8 +60,7 @@
         <div class="u-input firstelem">
             <label for="inpt-account" class="u-label">帐号：</label>
             <input name="name" id="user" placeholder="网易邮箱/手机号/其他邮箱" class="i-inpt" type="text"><div class="auto-1474905513150 m-sug" id="auto-id-1474905513152" style="visibility: hidden;"></div>
-            <br/><br/>
-			<span id='unameinfo' style="font-size:15px"></span>
+            <br/><br/><span id='unameinfo' style="font-size:15px"></span>
             <!-- <input type='text' name='name' color='green'> -->
   <script>
             var info = document.getElementById('unameinfo');
@@ -113,6 +112,27 @@
             <div class="u-tip f-dn"><div class="spritebg u-clear" id="auto-id-1474905513170"></div></div>
             <!--Regular if7--><!--Regular if8-->
         </div>
+        <div class="u-input">
+            <label for="inpt-pw2" class="u-label">手机号码：</label>
+            <input name="tel" id="tel" placeholder="请输入手机号" class="i-inpt " type="text">
+            <div class="u-tip f-dn"><div class="spritebg u-clear" id="auto-id-1474905513170"></div></div>
+            <br/><br/><span id='unameinf' style="font-size:15px"></span>
+            <!--Regular if7--><!--Regular if8-->
+        </div>
+          <script>
+            var inf = document.getElementById('unameinf');
+             $('#tel').focus(function(){
+                inf.innerHTML='';
+             }).blur(function(){
+                var inf = document.getElementById('unameinf');
+                var use = $('#tel').val();
+                if(use.match(/^(0|86|17951)?(13[0-9]|15[012356789]|1[78][0-9]|14[57])[0-9]{8}$/)==null){
+                inf.innerHTML = '手机号码格式不对';
+                inf.style.color = 'red';
+                }
+
+            })
+  </script>
         <div class="u-input">
             <label for="inpt-pw2" class="u-label">验证码：</label>
             <input name="code" id="inpt-pw2" placeholder="你好,请输入验证码" class="i-inpt " type="text" style="width:166px">

@@ -44,7 +44,7 @@ class ShopController extends Controller
                 $ext = $file->getClientOriginalExtension();//获得后缀 
                 $filename = time().rand(1000,9999).".".$ext;//新文件名
                 $file->move("./images/child/",$filename);
-                $xg= \DB::table('shop')->where('id','=',$id)->update(['name'=>$request->name,'price'=>$request->price,'briefing'=>$request->briefing,'photo'=>$filename]);
+                $xg= \DB::table('shop')->where('id','=',$id)->update(['name'=>$request->name,'price'=>$request->price,'briefing'=>$request->briefing,'merchant'=>$request->merchant,'sales'=>$request->sales,'service'=>$request->service,'photo'=>$filename]);
                   //如果修改成功跳转到主界面;
                     if($xg>0){
                         // return $this->index();
@@ -56,7 +56,7 @@ class ShopController extends Controller
 
                   
         }else{
-            $xg= \DB::table('shop')->where('id','=',$id)->update(['name'=>$request->name,'price'=>$request->price,'briefing'=>$request->briefing]);
+            $xg= \DB::table('shop')->where('id','=',$id)->update(['name'=>$request->name,'price'=>$request->price,'briefing'=>$request->briefing,'merchant'=>$request->merchant,'sales'=>$request->sales,'service'=>$request->service]);
             //如果修改成功跳转到主界面;
             if($xg>0){
                 // return $this->index();
@@ -82,11 +82,17 @@ class ShopController extends Controller
     		// dd($file);
 		//3 执行上传
     	// 当前文件路径使用realpath("./")查看
+        // dd($file);
+        if($file == null){
+
+            return redirect('/tjshops');
+        }
+
     	if($file->isValid()){
     		$ext = $file->getClientOriginalExtension();//获得后缀 
     		$filename = time().rand(1000,9999).".".$ext;//新文件名
     		$file->move("./images/child/",$filename);
-            $db= \DB::table('shop')->insert(['name'=>$request->name,'price'=>$request->price,'sid'=>$request->sid,'uid'=>$request->uid,'briefing'=>$request->briefing,'photo'=>$filename]);
+            $db= \DB::table('shop')->insert(['name'=>$request->name,'price'=>$request->price,'sid'=>$request->sid,'uid'=>$request->uid,'briefing'=>$request->briefing,'merchant'=>$request->merchant,'sales'=>$request->sales,'service'=>$request->service,'photo'=>$filename]);
 
 		        if($db>0){
 		            return redirect("/shop");
