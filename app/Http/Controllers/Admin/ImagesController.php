@@ -86,9 +86,16 @@ class ImagesController extends Controller
         $file = $request->file('photo');
              // dd($file);
         if($file == null){
-            $images = \DB::table('images')->where('id','=',$id)->first();
-          return view('admin.images.edit',['images'=>$images]);
-        }
+          //   $images = \DB::table('images')->where('id','=',$id)->first();
+          // return view('admin.images.edit',['images'=>$images]);
+              $xiu = \DB::table('images')->where('id','=',$id)->update(['name'=>$request->name]);
+              if($xiu>0){
+                    // return $this->index();
+                    return redirect("/admin/images");
+                }else{
+                    echo '图片轮播修改失败';
+                }   
+        }else{
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
             if($file->isValid()){
@@ -105,24 +112,8 @@ class ImagesController extends Controller
                 }   
         }
 
-        // $img = $request->all();
-        // if($img->isValid()){
-        //     $ext = $img->getClientOriginalExtension();//获得后缀 
-        //     $filename = time().rand(1000,9999).".".$ext;//新文件名
-        //     $img->move("./tutu/",$filename);
-        //       $xiu = \DB::table('images')->where('id','=',$id)->update(['name'=>$img->name,'photo'=>$filename]);
 
-
-        //                 //如果修改成功跳转到主界面;
-        //         if($xiu>0){
-        //             // return $this->index();
-        //             return redirect("/admin/images");
-        //         }else{
-        //             echo '图片轮播修改失败';
-        //         } 
-        
-        //     }
-      
+      }
         
     }
 }

@@ -144,9 +144,19 @@ class UserController extends Controller
             $file = $request->file('photo');
             // dd($file);
             if($file == null){
-                $user = \DB::table('user')->where('id','=',$id)->first();
-                return view('admin.user.edit',['user'=>$user]);
-            }
+                // $user = \DB::table('user')->where('id','=',$id)->first();
+                // return view('admin.user.edit',['user'=>$user]);
+                 if($request->pass == $request->password)
+                    {
+                        $xg = \DB::table('user')->where('id','=',$id)->update(['name'=>$request->name,'pass'=>$mima,'uname'=>$request->uname,'email'=>$request->email,'tel'=>$request->tel,'auth'=>$request->auth]);
+                        //如果修改成功跳转到主界面;
+                            return redirect("/admin/user");
+                    }else{
+                        
+                        return view('admin.user.info');
+                        // return redirect("/tianjia");
+                    } 
+            }else{
                 if($file->isValid())
                 {   
 
@@ -164,5 +174,6 @@ class UserController extends Controller
                         // return redirect("/tianjia");
                     } 
                 }
+            }
     }
 }

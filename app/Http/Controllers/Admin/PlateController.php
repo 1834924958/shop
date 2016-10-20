@@ -68,10 +68,10 @@ class PlateController extends Controller
     public function update($id,Request $request){
         $file = $request->file('photo');
           // dd($file);
-        if($file == null){
-              $plate = \DB::table('plate')->where('id','=',$id)->first();
-                return view('admin.plate.edit',['plate'=>$plate]);
-        }
+        // if($file == null){
+        //       $plate = \DB::table('plate')->where('id','=',$id)->first();
+        //         return view('admin.plate.edit',['plate'=>$plate]);
+        // }
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
         if(!empty($file)){

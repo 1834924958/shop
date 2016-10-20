@@ -29,10 +29,20 @@ class PeizController extends Controller
              // dd($file);
         // 如果没有文件,那么它还会跳转到修改页面;
         if($file == null){
-            $config = \DB::table('config')->where('id','=',$id)->first();
-        // dd($config);
-            return view('admin.config.pz',['config'=>$config]);
-        }
+        //     $config = \DB::table('config')->where('id','=',$id)->first();
+        // // dd($config);
+        //     return view('admin.config.pz',['config'=>$config]);
+
+             $xiu = \DB::table('config')->where('id','=',$id)->update(['title'=>$request->title,'keywords'=>$request->keywords,'content'=>$request->content,'kai'=>$request->kai,'copyright'=>$request->copyright]);
+             // dd($xiu);
+              if($xiu>0){
+                    // return $this->index();
+                    return redirect("/admin/config");
+                }else{
+                    return view("admin.config.pz");
+                }   
+
+        }else{
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
         if($file->isValid()){
@@ -49,6 +59,7 @@ class PeizController extends Controller
                 }else{
                     return view("admin.config.pz");
                 }   
-        }
+             }
+         }
     }
 }

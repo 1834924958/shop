@@ -81,10 +81,10 @@ class PlatesController extends Controller
         // dd($request);
         $file = $request->file('photo');
           // dd($file);
-        if($file == null){
-              $plate = \DB::table('chilePlate')->where('id','=',$id)->first();
-                return view('admin.childPlate.edit',['plate'=>$plate]);
-        }
+        // if($file == null){
+        //       $plate = \DB::table('chilePlate')->where('id','=',$id)->first();
+        //         return view('admin.childPlate.edit',['plate'=>$plate]);
+        // }
         //3 执行上传
         // 当前文件路径使用realpath("./")查看
         if(!empty($file)){
