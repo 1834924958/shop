@@ -13,6 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
+    
 });
 Route::resource('shujv', 'home\IndexController');
 // 前台的首页
