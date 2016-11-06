@@ -10,7 +10,11 @@ use App\Models\home;
 class IndexController extends Controller 
 {
 	public function index()
-	{			$on = \DB::table('config')->first();
+	{		
+
+		
+
+		$on = \DB::table('config')->first();
 			if($on->kai=='0'){
 
 
