@@ -372,7 +372,7 @@ class IndexController extends Controller
 		$dingd = \DB::table("buy")->where('hid',$uid)->get();
 		
 		
-		
+//		because of you
 		return view ('home.diz',['dingd'=>$dingd]);
 
 	}
